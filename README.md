@@ -1,9 +1,10 @@
-## <img src="./images/iReadme/Mario.jpg" style="width:6.4702in;height:0.11458in" alt="Easter egg ;-)" /> 
+# εµ by iMjN
+
+# <img src="./images/iReadme/Mario.jpg" style="width:6.4702in;height:0.11458in" alt="Easter egg ;-)" /> 
 
 <img src="./images/iReadme/BrianIkiara.jpg" style="width:6.46354in;height:4.30903in"
 alt="Tantrix for εµ" />
 
-εµ by iMjN
 
 ***An emulator für mich, und für Sie.***
 
@@ -19,7 +20,7 @@ Brian M’Ikiara
 
 #  
 
-# Team
+## Team
 
 <table>
 <colgroup>
@@ -63,7 +64,7 @@ href="https://www.youtube.com/watch?v=ryaksaimqU4"><u>Twitter</u></a>)</th>
 </tbody>
 </table>
 
-# Technologies
+## Technologies
 
 1.  SDL_2(*The main library* 🎲)
 
@@ -73,34 +74,34 @@ href="https://www.youtube.com/watch?v=ryaksaimqU4"><u>Twitter</u></a>)</th>
 
 4.  And lots of lots of **C**! 🗿
 
-# Challenges
+## Challenges
 
 Simply put, there're not many emulators around and humans need to
 experience their childhood once more. So  εµ will solve this. 😅
 
-# Risks
+## Risks
 
 We’ll be making a replica of a NES console from scratch, it might not
 work as intended but all that matters is we tried.
 
-# Infrastructure
+## Infrastructure
 
-## Workflow
+### Workflow
 
 We’ll be implementing the
 [<u>game-development-workflow</u>](https://github.com/topics/game-development-workflow)
 
-## Deployment 
+### Deployment 
 
 We’ll first have a desktop app then maybe deploy it to the web for all
 to enjoy.
 
-## Population
+### Population
 
 When we get to levels of PUBG and other big gaming companies, we’ll
 talk. 😂
 
-## Process
+### Process
 
 - <u>Tools</u>: We’ll be employing the
   > [<u>redox-os</u>](https://github.com/redox-os/libc) SDL_2 testing
@@ -113,9 +114,9 @@ talk. 😂
 
 #  
 
-# Existing Solutions
+## Existing Solutions
 
-## Mupen64 Emulator
+### Mupen64 Emulator
 
 > IMO, the best emulator on the market right now.
 
@@ -152,7 +153,7 @@ talk. 😂
 </tbody>
 </table>
 
-## SNES9x EX+
+### SNES9x EX+
 
 > This is another favorite of mine. It runs the Super Nintendo Super
 > ROMS, smoothly. Pretty neat, no?
@@ -195,7 +196,7 @@ talk. 😂
 
 #  
 
-# Parting Shot[^1]
+## Parting Shot[^1]
 
 Emulation can be difficult but as Mario would put it:
 
