@@ -1,5 +1,4 @@
-## <img src="./images/iReadme/Mario.jpg" style="width:6.4702in;height:0.11458in"
-alt="horizontal line" /> 
+## <img src="./images/iReadme/Mario.jpg" style="width:6.4702in;height:0.11458in" alt="Easter egg ;-)" /> 
 
 <img src="./images/iReadme/BrianIkiara.jpg" style="width:6.46354in;height:4.30903in"
 alt="Tantrix for εµ" />
