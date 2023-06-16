@@ -1,7 +1,7 @@
-## <img src="./images/iReadme/Mario.jpeg" style="width:6.4702in;height:0.11458in"
+## <img src="./images/iReadme/Mario.jpg" style="width:6.4702in;height:0.11458in"
 alt="horizontal line" /> 
 
-<img src="./images/iReadme/Tantrix.jpg" style="width:6.46354in;height:4.30903in"
+<img src="./images/iReadme/BrianIkiara.jpg" style="width:6.46354in;height:4.30903in"
 alt="Tantrix for εµ" />
 
 εµ by iMjN
@@ -200,7 +200,7 @@ talk. 😂
 
 Emulation can be difficult but as Mario would put it:
 
-<img src="./images/iReadme/Mario.jpeg" style="width:2.15625in;height:2.54167in" />
+<img src="./images/iReadme/Mario.jpg" style="width:2.15625in;height:2.54167in" />
 
 **LET’S A GO!!!!!**
 
