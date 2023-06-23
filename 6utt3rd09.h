@@ -9,12 +9,24 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+/**
+ * SDL_InstanceDeclarer - Instance declaration struct
+ * SDL_Instance - typedef for SDL_InstanceDeclarer
+ * @gWindow: Window
+ * @gRenderer: Renderer
+ *
+ * Description: Declares the instance of window CRUD.
+ */
+typedef struct SDL_InstanceDeclarer
+{
+        SDL_Window *gWindow;
+        SDL_Renderer *gRenderer;
+        SDL_Surface *gHelloWorld;
+} SDL_Instance;
+
 /* Global variables */
 const int WIDTH = 800;
 const int HEIGHT = 600;
-SDL_Window *gWindow = NULL;
-SDL_Surface *gScreenSurface = NULL;
-SDL_Surface *gHelloWorld = NULL;
 
 /* Main Prototypes */
 bool init();
