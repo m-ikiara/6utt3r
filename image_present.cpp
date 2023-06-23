@@ -12,7 +12,7 @@ bool init()
 {
         bool success = true;
 
-        if (SDL_Init(SDL_INIT_VIDEO) < 0)
+        if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
                 printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
                 success = false;
@@ -38,6 +38,15 @@ bool init()
                 }
         }
         return (success);
+}
+
+void renderer_stuff()
+{
+        SDL_Renderer *gRenderer;
+
+        gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
+        SDL_RenderClear(gRenderer);
+        SDL_RenderPresent(gRenderer);
 }
 
 /**
@@ -78,6 +87,20 @@ void close()
         SDL_Quit();
 }
 
+void steh_auf()
+{
+        SDL_Event e;
+        bool quit = false;
+        while(quit == false)
+        {
+                while(SDL_PollEvent(&e))
+                {
+                        if(e.type == SDL_QUIT)
+                                quit = true;
+                }
+        }
+}
+
 /**
  * main - Entry point
  * @ac: Argument count
@@ -97,7 +120,8 @@ int main(int ac, char *av[])
                 {
                         SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
                         SDL_UpdateWindowSurface(gWindow);
-                        SDL_Event e; bool quit = false; while(quit == false) { while(SDL_PollEvent(&e)) { if(e.type == SDL_QUIT) quit = true; }}
+                        renderer_stuff();
+                        steh_auf();
                 }
         }
         close();
