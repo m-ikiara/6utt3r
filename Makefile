@@ -23,13 +23,14 @@ LIBSDL2_PATH := /usr/lib/x86_64-linux-gnu
 # (using mingw64):
 # LIBSDL2_PATH = C:\\mingw64\\lib
 # (using msys64):
-#LIBSDL2_PATH = C:\\msys64\\mingw64\\lib
+WINDOWS_PATH = C:\msys64\mingw64\lib
 
 # Linker flags
 LDFLAGS := -L$(LIBSDL2_PATH) -lSDL2 -lSDL2main -lSDL2_image
+WINDOWS_FLAGS := -L$(WINDOWS_PATH) -lmingw32 -lSDL2 -lSDL2main -lSDL2_image
 
 # Name of executable
-TARGET := 6uττεrδ09
+TARGET := 6utt3rd09
 
 # Compile executable
 all: $(TARGET)
@@ -40,7 +41,7 @@ $(TARGET): $(OBJS)
 
 # For Windows
 windows: $(OBJS)
-	$(CC) $(OBJS) $(CFLAGS) $(LDFLAGS) -o $(TARGET).exe
+	$(CC) $(OBJS) $(CFLAGS) $(WINDOWS_FLAGS) -o $(TARGET).exe
 
 # Clean-up
 clean:
