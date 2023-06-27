@@ -63,20 +63,17 @@ void Butt3r::initButt3r(
       std::cout <<
         "No butter for dog? ;-(\n\tError: " <<
         SDL_GetError() << std::endl;
-      return;
     }
     gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
     if (!gRenderer) {
       std::cout <<
         "Unable to churn! ;-(\n\tError: " <<
         SDL_GetError() << std::endl;
-      return;
     }
     isRunning = true;
   } else {
     std::cout << "Failure to launch!\n\tError: " << SDL_GetError() << std::endl;
     isRunning = false;
-    return;
   }
 }
 
@@ -126,7 +123,6 @@ void Butt3r::renderDog() {
     std::cout <<
       "Andere Wochenende! Auf Wiedersehen? Tchüss!\n\tError: " <<
       SDL_GetError() << std::endl;
-    return;
   } else {
     SDL_SetRenderDrawColor(gRenderer, 255, 255, 255, 0);
   }
