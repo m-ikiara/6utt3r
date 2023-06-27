@@ -87,7 +87,7 @@ int main(int ac, char **av) {
     d0g->renderDog(); /* Render graphics */
   }
   d0g->cleanDog(); /* Clean up */
-  delete dog;
+  delete d0g;
 
   return EXIT_SUCCESS;
 }
