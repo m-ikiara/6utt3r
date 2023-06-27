@@ -23,11 +23,11 @@ LIBSDL2_PATH := /usr/lib/x86_64-linux-gnu
 # (using mingw64):
 # LIBSDL2_PATH = C:\\mingw64\\lib
 # (using msys64):
-WINDOWS_PATH = C:\msys64\mingw64\lib
+WINDOWS_PATH := C:\msys64\mingw64\lib
 
 # Linker flags
 LDFLAGS := -L$(LIBSDL2_PATH) -lSDL2 -lSDL2main -lSDL2_image
-WINDOWS_FLAGS := -L$(WINDOWS_PATH) -lmingw32 -lSDL2 -lSDL2main -lSDL2_image
+WINDOWS_FLAGS := -L$(WINDOWS_PATH) -lmingw32 -lSDL2 -lSDL2main -lSDL2_image -mwindows
 
 # Name of executable
 TARGET := 6utt3rd09
@@ -41,8 +41,12 @@ $(TARGET): $(OBJS)
 
 # For Windows
 windows: $(OBJS)
-	$(CC) $(OBJS) $(CFLAGS) $(WINDOWS_FLAGS) -o $(TARGET).exe
+	$(CXX) $(OBJS) $(CFLAGS) $(WINDOWS_FLAGS) -o $(TARGET).exe
 
 # Clean-up
 clean:
 	rm -f $(OBJS) $(TARGET) $(TARGET).exe
+
+.DEFAULT_GOAL := windows
+
+.PHONY: clean

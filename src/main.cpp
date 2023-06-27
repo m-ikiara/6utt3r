@@ -52,6 +52,8 @@ int WINAPI WinMain(
   d0g->cleanDog();
   delete d0g;
 
+  system("pause");
+
   return 0;
 }
 
@@ -88,6 +90,8 @@ int main(int ac, char **av) {
   }
   d0g->cleanDog(); /* Clean up */
   delete d0g;
+
+  system("pause");
 
   return EXIT_SUCCESS;
 }
