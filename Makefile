@@ -7,18 +7,17 @@
 # of compilation and linking.
 
 # Get all the files required for compilation
-OBJS = $(wildcard ./src/*.cpp)
+SRCS := $(wildcard ./src/*.cpp)
+OBJS := $(SRCS:.cpp=.o)
 
-# Specify compiler
-CXX = g++
-
-# Compiler flags
-CXXFLAGS = -Wall -Werror -Wextra -pedantic
+# Specify compiler and the various flags
+CXX := g++
+CXXFLAGS := -Wall -Werror -Wextra -pedantic
 
 # Specify the path to the libraries
 # For Linux
 # LIBSDL2_PATH = /usr/lib
-LIBSDL2_PATH = /usr/lib/x86_64-linux-gnu
+LIBSDL2_PATH := /usr/lib/x86_64-linux-gnu
 
 # For Windows
 # (using mingw64):
@@ -27,11 +26,22 @@ LIBSDL2_PATH = /usr/lib/x86_64-linux-gnu
 #LIBSDL2_PATH = C:\\msys64\\mingw64\\lib
 
 # Linker flags
-LDFLAGS = -L$(LIBSDL2_PATH) -lSDL2 -lSDL2_image
+LDFLAGS := -L$(LIBSDL2_PATH) -lSDL2 -lSDL2main -lSDL2_image
 
 # Name of executable
-TARGET = 6uττεrδ09
+TARGET := 6uττεrδ09
 
 # Compile executable
-all: $(OBJS)
+all: $(TARGET)
+
+# For Linux
+$(TARGET): $(OBJS)
 	$(CXX) $(OBJS) $(CXXFLAGS) $(LDFLAGS) -o $(TARGET)
+
+# For Windows
+windows: $(OBJS)
+	$(CC) $(OBJS) $(CFLAGS) $(LDFLAGS) -o $(TARGET).exe
+
+# Clean-up
+clean:
+	rm -f $(OBJS) $(TARGET) $(TARGET).exe
