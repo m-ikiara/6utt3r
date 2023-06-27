@@ -1,18 +1,37 @@
+# Let's build 6uττεrδ09! \('O')/
+#
+# This builds our Game executable. Feel free to comment
+# out or uncomment what you need.
+#
+# Note: Make sure you've added g++ to mingw64 for ease
+# of compilation and linking.
+
 # Get all the files required for compilation
 OBJS = $(wildcard ./src/*.cpp)
 
 # Specify compiler
-CC = g++
+CXX = g++
 
 # Compiler flags
-COMPILER_FLAGS = -Wall -Werror -Wextra -pedantic
+CXXFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Specify the path to the libraries
+# For Linux
+# LIBSDL2_PATH = /usr/lib
+LIBSDL2_PATH = /usr/lib/x86_64-linux-gnu
+
+# For Windows
+# (using mingw64):
+# LIBSDL2_PATH = C:\\mingw64\\lib
+# (using msys64):
+#LIBSDL2_PATH = C:\\msys64\\mingw64\\lib
 
 # Linker flags
-LINKER_FLAGS = -lSDL2 -lSDL_image
+LDFLAGS = -L$(LIBSDL2_PATH) -lSDL2 -lSDL2_image
 
 # Name of executable
-OBJ_NAME = "6uττεrδ09 by iMjN"
+TARGET = 6uττεrδ09
 
 # Compile executable
 all: $(OBJS)
-	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) $(OBJS) -o $(OBJ_NAME)
+	$(CXX) $(OBJS) $(CXXFLAGS) $(LDFLAGS) -o $(TARGET)
