@@ -1,4 +1,4 @@
-#include "6utt3rd09.hpp"
+#include "./6utt3rd09.hpp"
 
 /**
  * Butt3r - Class constructor
@@ -138,4 +138,17 @@ void Butt3r::cleanDog()
 	SDL_Quit();
 
 	std::cout << "So long! Que Passei! ;-)" << std::endl;
+}
+
+/**
+ * runDog - Boolean
+ *
+ * Description: Returns true if the Game State is
+ * "running".
+ * Return: true, if it's running; false otherwise.
+ * On error, stderr.
+ */
+bool Butt3r::runDog()
+{
+	return (isRunning);
 }
