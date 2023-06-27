@@ -14,7 +14,53 @@ Brian M’Ikiara
 
 @alx_africa
 
+\#Cohort_10 \#DoThemHardThings \#DaddyAL-X
+
 -------------------------------------
+
+## Team
+
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 27%" />
+<col style="width: 17%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Member</strong></th>
+<th><strong>Socials</strong></th>
+<th><strong>Role</strong></th>
+<th><strong>Reason</strong></th>
+</tr>
+<tr class="odd">
+<th><ol type="1">
+<li><blockquote>
+<p>Brian M’Ikiara 😡</p>
+</blockquote></li>
+</ol></th>
+<th>(<a href="https://github.com/brian-ikiara/"><u>GitHub</u></a>, <a
+href="https://twitter.com/brian_ikiara"><u>Twitter</u></a>)</th>
+<th>CTO and Founder of iMjN</th>
+<th><em><strong>They’re the owner of the idea.</strong></em></th>
+</tr>
+<tr class="header">
+<th><ol start="2" type="1">
+<li><blockquote>
+<p>Mr. Nobody 👻</p>
+</blockquote></li>
+</ol></th>
+<th>(<a
+href="https://www.youtube.com/watch?v=ryaksaimqU4"><u>GitHub</u></a>, <a
+href="https://www.youtube.com/watch?v=ryaksaimqU4"><u>Twitter</u></a>)</th>
+<th>Mascot</th>
+<th><em><strong>Er ist wirklich cool und intressant.</strong></em></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 
 ## Architecture
 
@@ -180,6 +226,86 @@ identifying and fixing issues.[^10]
 ## APIs and Methods
 
 <img src="./assets/images/iReadme/Shocked.jpg" style="width:3.125in;height:1.75in" />
+
+## Existing Solutions
+
+### Mupen64 Emulator
+
+> IMO, the best emulator on the market right now.
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Similarities</strong></th>
+<th><strong>Differences</strong></th>
+</tr>
+<tr class="odd">
+<th><ul>
+<li><blockquote>
+<p>Emulates hardware.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Can run a game ROM.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Pretty sleek.</p>
+</blockquote></li>
+</ul></th>
+<th><ul>
+<li><blockquote>
+<p>Well…um…it’s just…<strong>BETTER</strong>! 😂</p>
+</blockquote></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+### SNES9x EX+
+
+> This is another favorite of mine. It runs the Super Nintendo Super
+> ROMS, smoothly. Pretty neat, no?
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Similarities</strong></th>
+<th><strong>Differences</strong></th>
+</tr>
+<tr class="odd">
+<th><ul>
+<li><blockquote>
+<p>Built in C.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Simple and robust.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Can run a game ROM.</p>
+</blockquote></li>
+</ul></th>
+<th><ul>
+<li><blockquote>
+<p>Deployed in Android</p>
+</blockquote></li>
+<li><blockquote>
+<p>And…um…it’s just…<strong>YK 😅</strong></p>
+</blockquote></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 
 # Parting Shot[^11]
 
