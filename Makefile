@@ -1,11 +1,11 @@
 # Get all the files required for compilation
-OBJS = $(wildcard ./src/*.c)
+OBJS = $(wildcard ./src/*.cpp)
 
 # Specify compiler
-CC = gcc
+CC = g++
 
 # Compiler flags
-COMPILER_FLAGS =-Wall -Werror -Wextra -pedantic
+COMPILER_FLAGS = -Wall -Werror -Wextra -pedantic
 
 # Linker flags
 LINKER_FLAGS = -lSDL2 -lSDL_image
