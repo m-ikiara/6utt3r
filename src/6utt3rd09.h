@@ -9,19 +9,14 @@
  * All Rights Reserved.
  */
 
-#ifndef _6UTT3RD09_HPP_
-#define _6UTT3RD09_HPP_
+#ifndef _6UTT3RD09_H_
+#define _6UTT3RD09_H_
+#define SDL_MAIN_HANDLED
 
 #pragma once
 #include <iostream>
-#include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_main.h>
-#include <SDL2/SDL_image.h>
-#include <unistd.h>
-#include <stddef.h>
-#include <cctype>
-#include <cstdlib>
 
 /**
  * Butt3r - Class
@@ -35,10 +30,8 @@ class Butt3r {
   ~Butt3r();
 
   /* Method prototypes */
-  void initButt3r(
+  void init(
     const char *title,
-    int xpos,
-    int ypos,
     int width,
     int height,
     bool fullscreen);
@@ -46,13 +39,15 @@ class Butt3r {
   void handleDog();
   void renderDog();
   void cleanDog();
-  bool runDog();
+  const int WIDTH = 800, HEIGHT = 600;
+  bool runDog() { return isRunning; }
 
  private:
-  bool isRunning;
-  SDL_Window *gWindow;
-  SDL_Renderer *gRenderer;
-  SDL_Surface *gSurface;
+  bool isRunning = false;
+  int cnt = 0;
+  SDL_Window *gWindow = nullptr;
+  SDL_Renderer *gRenderer = nullptr;
+  SDL_Surface *gSurface = nullptr;
 };
 
-#endif /* _6UTT3RD09_HPP_ */
+#endif /* _6UTT3RD09_H_ */

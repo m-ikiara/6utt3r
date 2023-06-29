@@ -9,7 +9,7 @@
  * All Rights Reserved.
  */
 
-#include "./6utt3rd09.hpp"
+#include "6utt3rd09.h"
 
 /**
  * Butt3r - Class constructor
@@ -18,10 +18,6 @@
  * On error, stderr.
  */
 Butt3r::Butt3r()
-:isRunning(false),
- gWindow(nullptr),
- gRenderer(nullptr),
- gSurface(nullptr)
 {}
 
 /**
@@ -36,8 +32,6 @@ Butt3r::~Butt3r()
 /**
  * initButt3r - Class method
  * @title: Game name
- * @xpos: X axis mapping
- * @ypos: Y axis mapping
  * @width: Window width
  * @height: Window height
  * @fullscreen: Fullscreen
@@ -47,33 +41,24 @@ Butt3r::~Butt3r()
  * Return: success, if it works or otherwise.
  * On error, stderr + SDL_Error.
  */
-void Butt3r::initButt3r(
-  const char *title,
-  int xpos, int ypos, int width, int height, bool fullscreen
-) {
+void Butt3r::init(const char *title, int width, int height, bool fullscreen) {
   int flags = 0;
 
-  /* Check whether window is fullscreen */
-  if (fullscreen) { flags = SDL_WINDOW_FULLSCREEN; }
-  /* Initialize an SDL instance and handle error */
+  if (fullscreen) {
+    flags = SDL_WINDOW_FULLSCREEN;
+  }
+
   if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-    std::cout << "Let's go!" << std::endl;
-    gWindow = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
-    if (!gWindow) {
-      std::cout <<
-        "No butter for dog? ;-(\n\tError: " <<
-        SDL_GetError() << std::endl;
-    }
+    gWindow = SDL_CreateWindow(
+      title,
+      SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+      width, height, flags);
     gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
-    if (!gRenderer) {
-      std::cout <<
-        "Unable to churn! ;-(\n\tError: " <<
-        SDL_GetError() << std::endl;
+    if (gRenderer) {
+      SDL_SetRenderDrawColor(gRenderer, 255, 255, 255, 255);
     }
+
     isRunning = true;
-  } else {
-    std::cout << "Failure to launch!\n\tError: " << SDL_GetError() << std::endl;
-    isRunning = false;
   }
 }
 
@@ -108,7 +93,9 @@ void Butt3r::handleDog() {
  * On error, stderr + SDL_GetError.
  */
 void Butt3r::updatDog()
-{}
+{
+  std::cout << cnt++ << std::endl;
+}
 
 /**
  * renderDog - Class method
@@ -119,13 +106,6 @@ void Butt3r::updatDog()
  */
 void Butt3r::renderDog() {
   SDL_RenderClear(gRenderer);
-  if (!gRenderer) {
-    std::cout <<
-      "Andere Wochenende! Auf Wiedersehen? Tchüss!\n\tError: " <<
-      SDL_GetError() << std::endl;
-  } else {
-    SDL_SetRenderDrawColor(gRenderer, 255, 255, 255, 0);
-  }
   SDL_RenderPresent(gRenderer);
 }
 
@@ -141,18 +121,4 @@ void Butt3r::cleanDog() {
   SDL_DestroyWindow(gWindow);
   SDL_DestroyRenderer(gRenderer);
   SDL_Quit();
-
-  std::cout << "So long! Que Passei! ;-)" << std::endl;
-}
-
-/**
- * runDog - Boolean
- *
- * Description: Returns true if the Game State is
- * "running".
- * Return: true, if it's running; false otherwise.
- * On error, stderr.
- */
-bool Butt3r::runDog() {
-  return (isRunning);
 }
