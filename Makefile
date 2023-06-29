@@ -15,19 +15,14 @@ CXX := g++
 CXXFLAGS := -Wall -Werror -Wextra -pedantic
 
 # Specify the path to the libraries
-# For Linux
-# LIBSDL2_PATH = /usr/lib
-LIBSDL2_PATH := /usr/lib/x86_64-linux-gnu
-
-# For Windows
-# (using mingw64):
-# LIBSDL2_PATH = C:\\mingw64\\lib
-# (using msys64):
-WINDOWS_PATH := C:\msys64\mingw64\lib
+LIB_PATH := assets/lib
+HEADER_PATH := assets/incl
 
 # Linker flags
-LDFLAGS := -L$(LIBSDL2_PATH) -lSDL2 -lSDL2main -lSDL2_image
-WINDOWS_FLAGS := -L$(WINDOWS_PATH) -lmingw32 -lSDL2 -lSDL2main -lSDL2_image -mwindows
+# Linux
+LINUX_FLAGS := -I$(HEADER_PATH) -L$(LIB_PATH) -lSDL2 -lSDL2main -lSDL2_image
+# Windows
+WINDOWS_FLAGS := $(LINUX_FLAGS) -lmingw32 -w -W -isystem windows
 
 # Name of executable
 TARGET := 6utt3rd09
@@ -37,7 +32,7 @@ all: $(TARGET)
 
 # For Linux
 $(TARGET): $(OBJS)
-	$(CXX) $(OBJS) $(CXXFLAGS) $(LDFLAGS) -o $(TARGET)
+	$(CXX) $(OBJS) $(CXXFLAGS) $(LINUX_FLAGS) -o $(TARGET)
 
 # For Windows
 windows: $(OBJS)
@@ -45,7 +40,7 @@ windows: $(OBJS)
 
 # Clean-up
 clean:
-	rm -f $(OBJS) $(TARGET) $(TARGET).exe
+	rm $(OBJS) $(TARGET) $(TARGET).exe
 
 .DEFAULT_GOAL := windows
 
