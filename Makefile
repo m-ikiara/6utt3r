@@ -44,4 +44,7 @@ clean:
 
 .DEFAULT_GOAL := windows
 
-.PHONY: clean
+test:
+	echo "Hello, World!"
+
+.PHONY: clean all test
