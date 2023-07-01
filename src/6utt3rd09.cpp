@@ -9,7 +9,9 @@
  * All Rights Reserved.
  */
 
-#include "6utt3rd09.h"
+#include "./6utt3rd09.h"
+
+SDL_Texture *playerTex;
 
 /**
  * Butt3r - Class constructor
@@ -60,6 +62,10 @@ void Butt3r::init(const char *title, int width, int height, bool fullscreen) {
 
     isRunning = true;
   }
+
+  SDL_Surface *gSurface = IMG_Load("assets/images/iGame/Shocked.png");
+  playerTex = SDL_CreateTextureFromSurface(gRenderer, gSurface);
+  SDL_FreeSurface(gSurface);
 }
 
 /**
@@ -92,9 +98,9 @@ void Butt3r::handleDog() {
  * Return: void.
  * On error, stderr + SDL_GetError.
  */
-void Butt3r::updatDog()
-{
-  std::cout << cnt++ << std::endl;
+void Butt3r::updatDog() {
+  cnt++;
+  std::cout << cnt << std::endl;
 }
 
 /**
@@ -106,6 +112,7 @@ void Butt3r::updatDog()
  */
 void Butt3r::renderDog() {
   SDL_RenderClear(gRenderer);
+  SDL_RenderCopy(gRenderer, playerTex, NULL, NULL);
   SDL_RenderPresent(gRenderer);
 }
 
@@ -118,7 +125,9 @@ void Butt3r::renderDog() {
  * On error, stderr + SDL_GetError();
  */
 void Butt3r::cleanDog() {
+  SDL_DestroyTexture(playerTex);
   SDL_DestroyWindow(gWindow);
   SDL_DestroyRenderer(gRenderer);
+  IMG_Quit();
   SDL_Quit();
 }

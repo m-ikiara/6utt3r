@@ -15,8 +15,10 @@
 
 #pragma once
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
+#include "../assets/incl/SDL.h"
+#include "../assets/incl/SDL_main.h"
+#include "../assets/incl/SDL_image.h"
+#include "../assets/incl/SDL_surface.h"
 
 /**
  * Butt3r - Class
@@ -47,7 +49,6 @@ class Butt3r {
   int cnt = 0;
   SDL_Window *gWindow = nullptr;
   SDL_Renderer *gRenderer = nullptr;
-  SDL_Surface *gSurface = nullptr;
 };
 
 #endif /* _6UTT3RD09_H_ */
