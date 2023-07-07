@@ -3,7 +3,7 @@
 
 Butt3r *d09 = nullptr;
 
-int main(int argc, char *argv[]) {
+int main([[maybe_unused]]int argc, [[maybe_unused]]char *argv[]) {
   const int FPS = 60;
   const int frameDelay = 1000 / FPS;
 

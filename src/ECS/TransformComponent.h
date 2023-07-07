@@ -28,7 +28,7 @@ class TransformComponent : public Component {
     scale = sc;
   }
 
-  TransformComponent(float x, float y) {
+  TransformComponent([[maybe_unused]]float x, [[maybe_unused]]float y) {
     position.Zero();
   }
 
