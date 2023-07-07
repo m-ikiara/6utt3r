@@ -1,8 +1,8 @@
 # 6uττεrδ09 by iMjN - MVPSpec
 
-## <img src="./assets/images/Mario.jpg" style="width:6.4702in;height:0.11458in" alt="Mario" /> 
+## <img src="./assets/images/Mario.jpeg" style="width:6.4702in;height:0.11458in" alt="Mario" /> 
 
-<img src="./assets/images/BrianIkiara.jpg" style="width:6.46354in;height:4.30903in" alt="Tantrix" />
+<img src="./assets/images/butterScreen.png" style="width:6.46354in;height:4.30903in" alt="Tantrix" />
 
 ***An emulator für mich, und für Sie.***
 
@@ -311,7 +311,7 @@ identifying and fixing issues.[^10]
 
 Emulation can be difficult but as Mario would put it:
 
-<img src="./assets/images/Mario.jpg" style="width:2.15625in;height:2.54167in" />
+<img src="./assets/images/Mario.jpeg" style="width:2.15625in;height:2.54167in" />
 
 **LET’S A GO!!!!!**
 
