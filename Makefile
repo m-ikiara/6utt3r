@@ -7,22 +7,21 @@
 # of compilation and linking.
 
 # Get all the files required for compilation
-SRCS := $(wildcard ./src/*.cpp)
+SRCS := $(wildcard ./src/*.cpp ./src/ECS/*.cpp)
 OBJS := $(SRCS:.cpp=.o)
 
 # Specify compiler and the various flags
-CXX := g++
-CXXFLAGS := -Wall -Werror -Wextra -pedantic
+CXX := g++ -Wall -Werror -Wextra -pedantic
 
-# Specify the path to the libraries
-LIB_PATH := assets/lib
-HEADER_PATH := assets/incl
-
+# Specify the path to the libraries and header files
+SDL2_PATH := SDL2/lib/x64
+SDL2_IMAGE_PATH := SDL2/lib/x64
+HEADER_PATH := SDL2/include
 # Linker flags
 # Linux
-LINUX_FLAGS := -I$(HEADER_PATH) -L$(LIB_PATH) -lSDL2 -lSDL2main -lSDL2_image
+LINUX_FLAGS := $(shell sdl2-config --cflags --libs)
 # Windows
-WINDOWS_FLAGS := $(LINUX_FLAGS) -lmingw32 -w -W -isystem windows
+WINDOWS_FLAGS := -I$(HEADER_PATH) -L$(SDL2_PATH) -lmingw32 -lSDL2main -lSDL2 -mwindows -L$(SDL2_IMAGE_PATH) -LSDL2_image -ljxl -ljpeg -lSDL2_ttf -lpng16 -lzlib1 -lfreetype -w -W -isystem windows 
 
 # Name of executable
 TARGET := 6utt3rd09
@@ -32,11 +31,11 @@ all: $(TARGET)
 
 # For Linux
 $(TARGET): $(OBJS)
-	$(CXX) $(OBJS) $(CXXFLAGS) $(LINUX_FLAGS) -o $(TARGET)
+	$(CXX) -o $(TARGET) $(LINUX_FLAGS)
 
 # For Windows
 windows: $(OBJS)
-	$(CXX) $(OBJS) $(CFLAGS) $(WINDOWS_FLAGS) -o $(TARGET).exe
+	$(CXX) $(OBJS) $(WINDOWS_FLAGS) -o $(TARGET).exe
 
 # Clean-up
 clean:
