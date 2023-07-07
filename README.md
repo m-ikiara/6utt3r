@@ -1,8 +1,8 @@
 # 6uττεrδ09 by iMjN - MVPSpec
 
-## <img src="./assets/images/iReadme/Mario.jpg" style="width:6.4702in;height:0.11458in" alt="Mario" /> 
+## <img src="./assets/images/Mario.jpeg" style="width:6.4702in;height:0.11458in" alt="Mario" /> 
 
-<img src="./assets/images/iReadme/BrianIkiara.jpg" style="width:6.46354in;height:4.30903in" alt="Tantrix" />
+<img src="./assets/images/butterScreen.png" style="width:6.46354in;height:4.30903in" alt="Tantrix" />
 
 ***An emulator für mich, und für Sie.***
 
@@ -134,7 +134,7 @@ simple stuff. 😂
 anything</u>](https://www.tiktok.com/@johnnysins/video/7150077316356410670).
 Click the link, please!!!***
 
-<img src="./assets/images/iReadme/YesPapa.jpg" style="width:2.54167in;height:2.15625in" />
+<img src="./assets/images/YesPapa.jpg" style="width:2.54167in;height:2.15625in" />
 
 ### The SoFtWaRe ❄️: The 6uττεrδ09 Game
 
@@ -225,7 +225,7 @@ identifying and fixing issues.[^10]
 
 ## APIs and Methods
 
-<img src="./assets/images/iReadme/Shocked.jpg" style="width:3.125in;height:1.75in" />
+<img src="./assets/images/Shocked.jpg" style="width:3.125in;height:1.75in" />
 
 ## Existing Solutions
 
@@ -311,7 +311,7 @@ identifying and fixing issues.[^10]
 
 Emulation can be difficult but as Mario would put it:
 
-<img src="./assets/images/iReadme/Mario.jpg" style="width:2.15625in;height:2.54167in" />
+<img src="./assets/images/Mario.jpeg" style="width:2.15625in;height:2.54167in" />
 
 **LET’S A GO!!!!!**
 
