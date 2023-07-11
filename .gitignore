@@ -1,5 +1,6 @@
 *~
 *.o
 *.exe
+.idea
 .vscode
 __*
