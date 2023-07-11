@@ -5,11 +5,11 @@
 #pragma once
 
 #include <string>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "ECS.h"
 #include "../AssetManager.h"
 #include "../Butt3r.h"
-#include "../../SDL2/include/SDL.h"
-#include "../../SDL2/include/SDL_ttf.h"
 
 class UILabel : public Component {
  public:

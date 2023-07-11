@@ -1,13 +1,13 @@
 /* Copyright [2023] <Brian M'Ikiara> */
-#ifndef _GAME_H_
-#define _GAME_H_
+#ifndef _BUTT3R_H_
+#define _BUTT3R_H_
 
 #pragma once
 
 #include <iostream>
 #include <vector>
-#include "../SDL2/include/SDL.h"
-#include "../SDL2/include/SDL_image.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 class AssetManager;
 class ColliderComponent;
@@ -42,5 +42,5 @@ class Butt3r {
   SDL_Window *window;
 };
 
-#endif /* _GAME_H_ */
+#endif /* _BUTT3R_H_ */
 
