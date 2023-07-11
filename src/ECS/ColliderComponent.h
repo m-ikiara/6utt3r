@@ -4,7 +4,7 @@
 
 #pragma once
 #include <string>
-#include "../../SDL2/include/SDL.h"
+#include <SDL2/SDL.h>
 #include "Components.h"
 #include "../TextureManager.h"
 

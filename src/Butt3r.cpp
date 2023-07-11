@@ -30,7 +30,7 @@ Butt3r::~Butt3r()
 {}
 
 void Butt3r::init(const char* title, int width, int height, bool fullscreen) {
-  int flags = 0;
+  Uint32 flags = SDL_WINDOW_ALLOW_HIGHDPI;
 
   if (fullscreen) {
     flags = SDL_WINDOW_FULLSCREEN;

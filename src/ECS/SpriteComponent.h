@@ -6,8 +6,8 @@
 
 #include <string>
 #include <map>
+#include <SDL2/SDL.h>
 #include "Components.h"
-#include "../../SDL2/include/SDL.h"
 #include "../TextureManager.h"
 #include "Animation.h"
 #include "../AssetManager.h"
