@@ -6,7 +6,7 @@
 
 #include <map>
 #include <string>
-#include <SDL2/SDL_ttf.h>
+#include "./include/SDL_ttf.h"
 #include "TextureManager.h"
 #include "Vector2D.h"
 #include "ECS\ECS.h"

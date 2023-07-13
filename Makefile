@@ -19,7 +19,7 @@ LIB_PATH := src/lib
 
 # Linker flags
 # Windows
-WINDOWS_FLAGS := -lmingw32 -lSDL2 -lSDL2_image -lSDL2_ttf -lLerc -ljxl -ljxl_threads -w -W -isystem windows
+WINDOWS_FLAGS := -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lLerc -ljxl -ljxl_threads -w -W -isystem windows
 
 # Name of executable
 TARGET := 6utt3rd09
