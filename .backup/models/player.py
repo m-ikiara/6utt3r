@@ -49,11 +49,11 @@ class Player:
 
         self.check_wall_collision(dx, dy)
 
-        # Define angular rotation
-        if keys[pg.K_LEFT]:
-            self.angle -= PLAYER_ROT * self.game.delta_time
-        if keys[pg.K_RIGHT]:
-            self.angle += PLAYER_ROT * self.game.delta_time
+        # Define angular rotation using key presses
+        #if keys[pg.K_LEFT]:
+        #    self.angle -= PLAYER_ROT * self.game.delta_time
+        #if keys[pg.K_RIGHT]:
+        #    self.angle += PLAYER_ROT * self.game.delta_time
         self.angle %= math.tau # 360 degrees or 2 * Pi radians
 
     def check_wall(self, x, y):
@@ -85,9 +85,22 @@ class Player:
         if self.check_wall(int(self.x), int(self.y + dy * scale)):
             self.y += dy
 
+    def mouse_control(self):
+        """Handle mouse/touchpad input."""
+        mx, my = pg.mouse.get_pos()
+        # Check whether mouse is within bounds
+        if mx < MOUSE_BORDER_LEFT or mx > MOUSE_BORDER_RIGHT:
+            pg.mouse.set_pos([HALF_WIDTH, HALF_HEIGHT]) # at center
+        self.rel = pg.mouse.get_rel()[0] # at previous frame
+        self.rel = max(-MOUSE_MAX_REL, min(MOUSE_MAX_REL, self.rel))
+        # Modify Player angle to be that of mouse's relative position
+        self.angle += self.rel * MOUSE_SENSITIVITY * self.game.delta_time
+
+
     def update(self):
         """Refresh Player."""
         self.movement()
+        self.mouse_control()
 
     def draw(self):
         """Display on window pre-rendering."""

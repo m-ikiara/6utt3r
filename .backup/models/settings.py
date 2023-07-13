@@ -20,6 +20,12 @@ PLAYER_SPD = 0.004 # player velocity
 PLAYER_ROT = 0.002 # rotation speed
 PLAYER_SIZE_SCALE = 60 # to handle N2W pixelation
 
+# Mouse Properties
+MOUSE_SENSITIVITY = 0.0003 # how it feels
+MOUSE_MAX_REL = 40 # relative movement
+MOUSE_BORDER_LEFT = 100
+MOUSE_BORDER_RIGHT = WIDTH - MOUSE_BORDER_LEFT
+
 # Raycasting Properties
 FOV = math.pi / 3 # field of view
 HALF_FOV = FOV / 2
