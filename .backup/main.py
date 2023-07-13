@@ -11,6 +11,7 @@ from models.settings import *
 from models.map import Map
 from models.player import Player
 from models.raycasting import RayCasting
+from models.object_renderer import ObjectRenderer
 
 
 class Butt3r:
@@ -28,6 +29,7 @@ class Butt3r:
         """Define a new game instance."""
         self.map = Map(self)
         self.player = Player(self)
+        self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
 
     def handle_events(self):
@@ -49,7 +51,8 @@ class Butt3r:
 
     def draw(self):
         """Display on window pre-rendering."""
-        self.screen.fill('white')
+        self.screen.fill('black')
+        self.object_renderer.draw()
         #self.map.draw()
         #self.player.draw()
 
