@@ -18,6 +18,7 @@ PLAYER_POS = 1.5, 5 # self.mini_map
 PLAYER_ANGLE = 0
 PLAYER_SPD = 0.004 # player velocity
 PLAYER_ROT = 0.002 # rotation speed
+PLAYER_SIZE_SCALE = 60 # to handle N2W pixelation
 
 # Raycasting Properties
 FOV = math.pi / 3 # field of view

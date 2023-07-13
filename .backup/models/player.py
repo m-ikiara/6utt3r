@@ -77,9 +77,12 @@ class Player:
             dy (float): Change in y
 
         """
-        if self.check_wall(int(self.x + dx), int(self.y)):
+        # Check N2W value => Player size shouldn't be affected with
+        # values of dx and dy
+        scale = PLAYER_SIZE_SCALE / self.game.delta_time
+        if self.check_wall(int(self.x + dx * scale), int(self.y)):
             self.x += dx
-        if self.check_wall(int(self.x), int(self.y + dy)):
+        if self.check_wall(int(self.x), int(self.y + dy * scale)):
             self.y += dy
 
     def update(self):
