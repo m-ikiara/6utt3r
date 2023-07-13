@@ -95,7 +95,7 @@ class Player:
         #    self.y * 50 + WIDTH * math.sin(self.angle)), 2)
         pg.draw.circle(
             self.game.screen, "blue",
-            (self.x * 50, self.y * 50), 8)
+            (self.x * 50, self.y * 50), 7.5)
             
     @property
     def pos(self):

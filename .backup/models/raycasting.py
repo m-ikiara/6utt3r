@@ -66,15 +66,25 @@ class RayCasting:
                 depth_vert += delta_depth
 
             # Determining the depth we need
-            if depth_vert > depth_hor:
+            if depth_vert < depth_hor:
                 depth = depth_vert
             else:
                 depth = depth_hor
 
             # Draw to test raycasting
-            pg.draw.line(
-                self.game.screen, "red", (50 * ox, 50 * oy),
-                (50 * ox + 50 * depth * cos_a, 50 * oy + 50 * depth * sin_a), 2
+            #pg.draw.line(
+            #    self.game.screen, "red", (50 * ox, 50 * oy),
+            #    (50 * ox + 50 * depth * cos_a, 50 * oy + 50 * depth * sin_a), 2
+            #)
+
+            # Project to screen
+            proj_height = SCREEN_DIST / (depth + 0.0001)
+
+            # Draw walls
+            pg.draw.rect(
+                self.game.screen, "darkgrey",
+                (ray * SCALE, HALF_HEIGHT - proj_height // 2,
+                 SCALE, proj_height) 
             )
 
             ray_angle += DELTA_ANGLE

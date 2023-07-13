@@ -50,8 +50,8 @@ class Butt3r:
     def draw(self):
         """Display on window pre-rendering."""
         self.screen.fill('white')
-        self.map.draw()
-        self.player.draw()
+        #self.map.draw()
+        #self.player.draw()
 
     def run(self):
         """Execute 6utt3rd09.
