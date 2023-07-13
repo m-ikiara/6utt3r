@@ -7,9 +7,10 @@ will be defined.
 """
 import sys
 import pygame as pg
-from models.settings import RES, FPS
+from models.settings import *
 from models.map import Map
 from models.player import Player
+from models.raycasting import RayCasting
 
 
 class Butt3r:
@@ -27,6 +28,7 @@ class Butt3r:
         """Define a new game instance."""
         self.map = Map(self)
         self.player = Player(self)
+        self.raycasting = RayCasting(self)
 
     def handle_events(self):
         """Manage whatever event there may be."""
@@ -38,6 +40,7 @@ class Butt3r:
     def update(self):
         """Update the gameplay."""
         self.player.update()
+        self.raycasting.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption("{:.1f}".format(
