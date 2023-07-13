@@ -9,6 +9,8 @@ import math
 
 # Screen Resolution and Frame Rate
 RES = WIDTH, HEIGHT = 800, 450
+HALF_WIDTH = WIDTH // 2
+HALF_HEIGHT = HEIGHT // 2
 FPS = 60
 
 # Player Characteristics
@@ -23,4 +25,7 @@ HALF_FOV = FOV / 2
 NUM_RAYS = WIDTH // 2 # to make it realistic
 HALF_NUM_RAYS = NUM_RAYS // 2
 DELTA_ANGLE = FOV / NUM_RAYS # angle between rays
-MAX_DEPTH = 10
+MAX_DEPTH = 20
+# Screen Location
+SCREEN_DIST = HALF_WIDTH / math.tan(HALF_FOV)
+SCALE = WIDTH // NUM_RAYS # scaling factor
