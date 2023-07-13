@@ -26,6 +26,11 @@ NUM_RAYS = WIDTH // 2 # to make it realistic
 HALF_NUM_RAYS = NUM_RAYS // 2
 DELTA_ANGLE = FOV / NUM_RAYS # angle between rays
 MAX_DEPTH = 20
+
 # Screen Location
 SCREEN_DIST = HALF_WIDTH / math.tan(HALF_FOV)
 SCALE = WIDTH // NUM_RAYS # scaling factor
+
+# Texture Properties
+TEXTURE_SIZE = 256
+HALF_TEXTURE_SIZE = TEXTURE_SIZE // 2

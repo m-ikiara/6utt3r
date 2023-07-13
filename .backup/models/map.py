@@ -47,5 +47,5 @@ class Map:
         """Display on window pre-rendering."""
         [pg.draw.rect(
             self.game.screen,
-            "black", (pos[0] * 50, pos[1] * 50, 50, 50), 2)
+            "white", (pos[0] * 50, pos[1] * 50, 50, 50), 2)
             for pos in self.world_map]
