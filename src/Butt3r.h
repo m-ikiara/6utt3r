@@ -4,10 +4,11 @@
 
 #pragma once
 
+#include "./include/SDL.h"
+#include "./include/SDL_main.h"
+#include "./include/SDL_image.h"
 #include <iostream>
 #include <vector>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 
 class AssetManager;
 class ColliderComponent;

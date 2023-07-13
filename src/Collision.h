@@ -3,7 +3,7 @@
 #define _COLLISION_H_
 
 #pragma once
-#include <SDL2/SDL.h>
+#include "./include/SDL.h"
 
 class ColliderComponent;
 
