@@ -8,7 +8,7 @@ import math
 
 
 # Screen Resolution and Frame Rate
-RES = WIDTH, HEIGHT = 800, 450
+RES = WIDTH, HEIGHT = 800, 600
 HALF_WIDTH = WIDTH // 2
 HALF_HEIGHT = HEIGHT // 2
 FPS = 60
@@ -25,6 +25,9 @@ MOUSE_SENSITIVITY = 0.0003 # how it feels
 MOUSE_MAX_REL = 40 # relative movement
 MOUSE_BORDER_LEFT = 100
 MOUSE_BORDER_RIGHT = WIDTH - MOUSE_BORDER_LEFT
+
+# Ceiling and Floor Properties
+FLOOR_COLOR = (30, 30, 30)
 
 # Raycasting Properties
 FOV = math.pi / 3 # field of view

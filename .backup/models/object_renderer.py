@@ -16,10 +16,30 @@ class ObjectRenderer:
         self.game = d09
         self.screen = d09.screen
         self.wall_textures = self.load_wall_textures()
+        # Render Sky and Floor textures
+        self.sky_image = self.get_texture("resources/textures/Sky.jpg")
+        self.sky_offset = 0 
 
     def draw(self):
         """Display rendered changes on window."""
+        self.draw_background()
         self.render_game_objects()
+
+    def draw_background(self):
+        """Display sky and floor textures.
+        
+        Sky offset is dependent on mouse's relative position and
+        we'll be calculating it here.
+
+        """
+        # For sky
+        self.sky_offset = (self.sky_offset + 4.5 * self.game.player.rel) % WIDTH
+        # Scale as per offset value
+        self.screen.blit(self.sky_image, (-self.sky_offset, 0))
+        self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
+        
+        # For floor
+        pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))
 
     def render_game_objects(self):
         """Render objects to display.
