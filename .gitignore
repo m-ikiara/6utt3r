@@ -3,4 +3,5 @@
 *.exe
 .idea
 .vscode
-__*
+.null-ls*
+__pycache__
