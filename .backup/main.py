@@ -20,6 +20,8 @@ class Butt3r:
     def __init__(self):
         """Initialize 6utt3rd09."""
         pg.init()
+        # Hide mouse pointer
+        pg.mouse.set_visible(False)
         self.screen = pg.display.set_mode(RES)
         self.clock = pg.time.Clock()
         self.delta_time = 1
