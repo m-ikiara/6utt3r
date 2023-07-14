@@ -58,8 +58,8 @@ class Butt3r:
         """Display on window pre-rendering."""
         #self.screen.fill('black')
         self.object_renderer.draw()
-        self.map.draw()
-        self.player.draw()
+        #self.map.draw()
+        #self.player.draw()
 
     def run(self):
         """Execute 6utt3rd09.
