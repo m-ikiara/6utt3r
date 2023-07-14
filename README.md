@@ -20,7 +20,7 @@ Brian M’Ikiara
 
 ## Link to Demo
 
-[![6utt3rd09 by iMjN](https://www.youtube.com/watch?v=p3GXnwfMs0k)](https://youtu.be/p3GXnwfMs0k)
+[![6utt3rd09 by iMjN](./.backup/resources/textures/DaBaby.jpg)](https://youtu.be/p3GXnwfMs0k)
 
 ## Team
 
