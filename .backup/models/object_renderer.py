@@ -48,7 +48,12 @@ class ObjectRenderer:
         and draw the resulting texture columns onto the surfaces.
 
         """
-        list_objects = self.game.raycasting.objects_to_render
+        # To prevent "See through" Sprites
+        list_objects = sorted(
+            self.game.raycasting.objects_to_render,
+            key=lambda t: t[0],
+            reverse=True
+        )
         for depth, image, pos in list_objects:
             self.screen.blit(image, pos)
 
