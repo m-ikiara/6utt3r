@@ -104,11 +104,11 @@ class Player:
 
     def draw(self):
         """Display on window pre-rendering."""
-        #pg.draw.line(
-        #    self.game.screen, "red",
-        #    (self.x * 50, self.y * 50),
-        #    (self.x * 50 + WIDTH * math.cos(self.angle),
-        #    self.y * 50 + WIDTH * math.sin(self.angle)), 2)
+        pg.draw.line(
+            self.game.screen, "red",
+            (self.x * 50, self.y * 50),
+            (self.x * 50 + WIDTH * math.cos(self.angle),
+            self.y * 50 + WIDTH * math.sin(self.angle)), 2)
         pg.draw.circle(
             self.game.screen, "blue",
             (self.x * 50, self.y * 50), 7.5)
