@@ -1,6 +1,6 @@
 # 6uττεrδ09 by iMjN - MVPSpec
 
-## <img src="./assets/images/Mario.jpeg" style="width:6.4702in;height:0.11458in" alt="Mario" /> 
+## <img src="./assets/images/Mario.jpeg" style="width:100%;height:0.11458in" alt="Mario" /> 
 
 <img src="./assets/images/butterScreen.png" style="width:6.46354in;height:4.30903in" alt="Tantrix" />
 
@@ -20,7 +20,7 @@ Brian M’Ikiara
 
 ## Link to Demo
 
-[![6utt3rd09 by iMjN](./.backup/resources/textures/DaBaby.jpg)](https://youtu.be/p3GXnwfMs0k)
+[![6utt3rd09 by iMjN](./.backup/resources/sprites/animated_sprites/SoiBoi.gif)](https://youtu.be/p3GXnwfMs0k)
 
 ## Team
 
