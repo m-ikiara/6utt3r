@@ -12,7 +12,8 @@ from models.map import Map
 from models.player import Player
 from models.raycasting import RayCasting
 from models.object_renderer import ObjectRenderer
-from models.sprite_object import SpriteObject
+#from models.sprite_object import SpriteObject, AnimatedSprites
+from models.object_handler import ObjectHandler
 
 
 class Butt3r:
@@ -34,7 +35,11 @@ class Butt3r:
         self.player = Player(self)
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
-        self.static_sprite = SpriteObject(self)
+        # Pre-ObjectHandler
+        #self.static_sprite = SpriteObject(self)
+        #self.animated_sprite = AnimatedSprites(self)
+        # Post-ObjectHandler
+        self.object_handler = ObjectHandler(self)
 
     def handle_events(self):
         """Manage whatever event there may be."""
@@ -44,10 +49,12 @@ class Butt3r:
                 sys.exit()
 
     def update(self):
-        """Update the gameplay."""
+        """Refresh the game."""
         self.player.update()
         self.raycasting.update()
-        self.static_sprite.update()
+        #self.static_sprite.update()
+        #self.animated_sprite.update()
+        #self.object_handler.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption("{:.1f}".format(
@@ -56,10 +63,10 @@ class Butt3r:
 
     def draw(self):
         """Display on window pre-rendering."""
-        #self.screen.fill('black')
+        self.screen.fill('black')
         self.object_renderer.draw()
-        #self.map.draw()
-        #self.player.draw()
+        self.map.draw()
+        self.player.draw()
 
     def run(self):
         """Execute 6utt3rd09.
