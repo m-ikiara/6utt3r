@@ -118,10 +118,10 @@ class RayCasting:
             depth *= math.cos(self.game.player.angle - ray_angle)
 
             # Draw to test raycasting
-            #pg.draw.line(
-            #    self.game.screen, "red", (50 * ox, 50 * oy),
-            #    (50 * ox + 50 * depth * cos_a, 50 * oy + 50 * depth * sin_a), 2
-            #)
+            pg.draw.line(
+                self.game.screen, "red", (50 * ox, 50 * oy),
+                (50 * ox + 50 * depth * cos_a, 50 * oy + 50 * depth * sin_a), 2
+            )
 
             # Project to screen
             proj_height = SCREEN_DIST / (depth + 0.0001)
