@@ -97,7 +97,7 @@ class AnimatedSprites(SpriteObject):
 
     def __init__(
         self, d09,
-        path="resources/sprites/animated_sprites/SoiBoi.gif",
+        path="resources/sprites/animated_sprites/SoiBoi.jpg",
         pos=(8, 5), scale=0.8, shift=0.15, animation_time=120):
         """Initialize AnimatedSprites.
 

@@ -54,7 +54,7 @@ class Butt3r:
         self.raycasting.update()
         #self.static_sprite.update()
         #self.animated_sprite.update()
-        #self.object_handler.update()
+        self.object_handler.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption("{:.1f}".format(
@@ -63,10 +63,10 @@ class Butt3r:
 
     def draw(self):
         """Display on window pre-rendering."""
-        self.screen.fill('black')
+        #self.screen.fill('black')
         self.object_renderer.draw()
-        self.map.draw()
-        self.player.draw()
+        #self.map.draw()
+        #self.player.draw()
 
     def run(self):
         """Execute 6utt3rd09.
