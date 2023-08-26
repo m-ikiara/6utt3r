@@ -13,7 +13,7 @@ int main([[maybe_unused]]int argc, [[maybe_unused]]char *argv[]) {
   int frameTime;
 
   d09 = new Butt3r();
-  d09->init("6utt3rd09 by iMjN", 800, 640, false);
+  d09->init("6utt3rd09", 800, 640, false);
 
   while (d09->running()) {
     frameStart = SDL_GetTicks();
