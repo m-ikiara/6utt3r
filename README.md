@@ -1,6 +1,8 @@
-# 6utt3rd09
-
-![GitHub repo size](https://img.shields.io/github/repo-size/brian-ikiara/6utt3rd09?style=plastic)
+<div align="center">
+    <h1>6utt3rd09</h1>
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/brian-ikiara/6utt3rd09?style=plastic&color=red" />
+    <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/brian-ikiara/6utt3rd09?style=plastic&labelColor=white" />
+</div>
 
 ## Try it out simply...
 
