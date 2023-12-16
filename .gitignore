@@ -1,7 +1,6 @@
 *~
 *.o
 *.exe
-.idea
-.vscode
 .null-ls*
 __pycache__
+.mypy_cache*

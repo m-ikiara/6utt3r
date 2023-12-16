@@ -12,7 +12,7 @@ from models.map import Map
 from models.player import Player
 from models.raycasting import RayCasting
 from models.object_renderer import ObjectRenderer
-#from models.sprite_object import SpriteObject, AnimatedSprites
+# from models.sprite_object import SpriteObject, AnimatedSprites
 from models.object_handler import ObjectHandler
 
 
@@ -28,7 +28,7 @@ class Butt3r:
         self.clock = pg.time.Clock()
         self.delta_time = 1
         self.new_game()
-    
+
     def new_game(self):
         """Define a new game instance."""
         self.map = Map(self)
@@ -36,15 +36,16 @@ class Butt3r:
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
         # Pre-ObjectHandler
-        #self.static_sprite = SpriteObject(self)
-        #self.animated_sprite = AnimatedSprites(self)
+        # self.static_sprite = SpriteObject(self)
+        # self.animated_sprite = AnimatedSprites(self)
         # Post-ObjectHandler
         self.object_handler = ObjectHandler(self)
 
     def handle_events(self):
         """Manage whatever event there may be."""
         for event in pg.event.get():
-            if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
+            if event.type == pg.QUIT or (
+                    event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 pg.quit()
                 sys.exit()
 
@@ -52,21 +53,21 @@ class Butt3r:
         """Refresh the game."""
         self.player.update()
         self.raycasting.update()
-        #self.static_sprite.update()
-        #self.animated_sprite.update()
-        self.object_handler.update()
+        # self.static_sprite.update()
+        # self.animated_sprite.update()
+        # self.object_handler.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
-        pg.display.set_caption("{:.1f}".format(
+        pg.display.set_caption("6utt3rd09 Engine running: {:.1f} frames per second".format(
             self.clock.get_fps()
         ))
 
     def draw(self):
         """Display on window pre-rendering."""
-        #self.screen.fill('black')
+        # self.screen.fill('black')
         self.object_renderer.draw()
-        #self.map.draw()
-        #self.player.draw()
+        # self.map.draw()
+        # self.player.draw()
 
     def run(self):
         """Execute 6utt3rd09.
