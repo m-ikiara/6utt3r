@@ -1,5 +1,7 @@
 # 6utt3rd09
 
+![GitHub repo size](https://img.shields.io/github/repo-size/brian-ikiara/6utt3rd09?style=plastic)
+
 ## Try it out simply...
 
 > ***I'll add more instructions about building the C++ binary later... #fromscratch***
