@@ -8,7 +8,7 @@
       <img src="{{ "/assets/images/2024-01-06-site-logo.png" | relative_url }}" alt="Logo">
     </div>
 
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" rel="author" href="{{ site.url | relative_url }}">{{ site.title | escape }}</a>
 
     {%- if page_paths -%}
       <nav class="site-nav">
