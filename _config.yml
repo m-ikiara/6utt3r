@@ -25,7 +25,7 @@ email: brnikiara@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is it, my Portfolio that showcases my journey up to now as a Software Developer.
   I hope you'll gain insight on how to build your own in future. Happy Hacking. =-D
-baseurl: "/6utt3rd09" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://brian-ikiara.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  brian-ikiara
 linkedin_username: br14n-1k14r4
