@@ -37,6 +37,7 @@ int main(int argc, char *argv[]) {
       if (event.type == SDL_MOUSEMOTION)
         printf("[INFO] Mouse's moved!");
       if (event.type == SDL_KEYDOWN) {
+        // TODO: Implement ESCAPE key and other features
         if (event.key.keysym.sym == SDLK_0)
           printf("[INFO] You pressed 0!");
         else
