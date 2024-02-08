@@ -1,6 +1,4 @@
+# C/C++ garbage
 *~
 *.o
 *.exe
-.null-ls*
-__pycache__
-.mypy_cache*
