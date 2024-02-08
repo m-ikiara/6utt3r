@@ -22,4 +22,6 @@ $ ./butter start
 
 ## 🔑 Licensing
 
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](./LICENSE) file for details.[^1]
+
+[^1]: Having trouble understanding these commits? Check out this [Issue](https://github.com/m-ikiara/m-ikiara.github.io/issues/1) for more details. :grin:
