@@ -1,3 +1,4 @@
+// TODO: Integrate OpenGL
 #include <iostream>
 #include <cstdlib>
 
@@ -37,7 +38,6 @@ int main(int argc, char *argv[]) {
       if (event.type == SDL_MOUSEMOTION)
         printf("[INFO] Mouse's moved!");
       if (event.type == SDL_KEYDOWN) {
-        // TODO: Implement ESCAPE key and other features
         if (event.key.keysym.sym == SDLK_0)
           printf("[INFO] You pressed 0!");
         else
@@ -47,6 +47,12 @@ int main(int argc, char *argv[]) {
         if (event.key.keysym.sym == SDLK_0)
           printf("[INFO] You stopped pressing 0!");
       }
+      
+      const Uint8 *state = SDL_GetKeyboardState(NULL);
+      if (state[SDL_SCANCODE_RIGHT])
+        printf("[INFO] Turning right...\n");
+      if (state[SDL_SCANCODE_LEFT])
+        printf("[INFO] Turning left...\n");
     }
   }
 
