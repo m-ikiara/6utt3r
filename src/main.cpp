@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
 
-  if (argc < 1 && !argv)
+  if (argc == 0 && !argv)
     return EXIT_FAILURE;
 
   SDL_Window *window = nullptr;
@@ -17,10 +17,10 @@ int main(int argc, char *argv[]) {
 
   window = SDL_CreateWindow("6utt3r: The Ray-casting Engine",
                             0,
-                            2500,
+                            0,
                             800,
                             600,
-                            SDL_WINDOW_RESIZABLE | SDL_WINDOW_MINIMIZED);
+                            SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   SDL_Delay(3000);
 
   if (!window)
