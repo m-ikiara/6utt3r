@@ -1,22 +1,27 @@
-// TODO: Integrate OpenGL
-#include <iostream>
-#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <SDL2/SDL.h>
+#include <glad/glad.h>
 
-
-int main(int argc, char *argv[]) {
-  std::setvbuf(stdout, NULL, _IONBF, 0);
-
+int
+main(int argc, char *argv[]) {
   if (argc == 0 && !argv)
     return EXIT_FAILURE;
 
-  SDL_Window *window = nullptr;
+  SDL_Window *window = NULL;
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
     printf("SDL failed to initialize: %s", SDL_GetError());
   else
     printf("[SUCCESS] Hello, World!");
+
+  // Setting up OpenGL version
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+  SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 
   window = SDL_CreateWindow("6utt3r: The Ray-casting Engine",
                             (int) 800 / 2,
@@ -29,9 +34,21 @@ int main(int argc, char *argv[]) {
   !window ? printf("[ERROR] Failed to Initialize Window!: %s", SDL_GetError())
           : printf("[SUCCESS] Window created!: %p", (void *) &window);
 
+  // Pre-load the Graphics:
+  // Context
+  SDL_GLContext context;
+  context = SDL_GL_CreateContext(window);
 
+  // Function pointers
+  gladLoadGLLoader(SDL_GL_GetProcAddress);
+  
   bool isRunning = true;
   while (isRunning) {
+    // Refreshing the Viewport
+    glViewport((GLint) 800 / 2,
+               (GLint) 400 / 2,
+               800, 600);
+
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
       event.type == SDL_QUIT ? isRunning = false : isRunning;
@@ -54,6 +71,13 @@ int main(int argc, char *argv[]) {
       if (state[SDL_SCANCODE_LEFT])
         printf("[INFO] Turning left...\n");
     }
+
+    // Rendering color to the Viewport
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+
+    // Updating changes to Viewport
+    SDL_GL_SwapWindow(window);
   }
 
   SDL_DestroyWindow(window);
