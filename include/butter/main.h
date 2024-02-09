@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 #define r (float) 1.0 
 #define b (float) 0.0 

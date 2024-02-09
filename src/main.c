@@ -6,6 +6,7 @@ main(int argc, char *argv[]) {
     return EXIT_FAILURE;
 
   SDL_Window *window = NULL;
+  SDL_Surface *screen = NULL; // "Grab" the Screen
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
     fprintf(stderr, "SDL failed to initialize: %s", SDL_GetError());
@@ -20,6 +21,20 @@ main(int argc, char *argv[]) {
   !window ? fprintf(stderr,
                     "[ERROR] Failed to Initialize Window!: %s",SDL_GetError())
           : fprintf(stderr, "[SUCCESS] Window created!");
+
+  // Initialize the Surface buffer
+  screen = SDL_GetWindowSurface(window);
+
+  // Load the Image
+  SDL_Surface *image, *bImage, *lbImage;
+  image = IMG_Load("./assets/images/favicon.png");
+  bImage = SDL_SaveBMP(image, "./assets/bmp/0-favicon.bmp"); // Convert to BMP
+  lbImage = SDL_LoadBMP("./images/0-favicon.bmp"); // Convert to BMP
+  SDL_BlitSurface(lbImage, NULL, screen, NULL);
+  SDL_FreeSurface(image);
+
+  // Update to Screen
+  SDL_UpdateWindowSurface(window);
 
   bool isRunning = true;
   while (isRunning) {
