@@ -1,3 +1,14 @@
+##################################6utt3r#####################################
+#
+#	TODO: So much needs to go in this Makefile! Here's a list:
+#		1. Implement cross-compilation with clang, gcc and g++
+#		2. Implement the Linux recipe
+#		3. Use sdl2-config over explicit declaration of CXXFLAGS and LibFLAGS
+#		4. Toggle JIT Debugging on or off
+#		5. Handle Dev mode!
+#
+#############################################################################
+
 # Compiler settings
 CC := gcc
 CXX := g++
@@ -8,7 +19,7 @@ IncDIR := ./include
 LibDIR := ./lib
 ObjDIR := ./obj
 CXXFLAGS := -O3 -Wall -Wextra -pedantic -mwindows
-LibFLAGS := -lmingw32 -lSDL2main -lSDL2 -L$(addprefix $(LibDIR)/,SDL2/lib)
+LibFLAGS := -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -L$(addprefix $(LibDIR)/,SDL2/lib)
 IncFLAGS := $(addprefix -I,$(IncDIR))
 
 # Call it whatever you like
@@ -18,6 +29,7 @@ NAME := 6utt3r
 SRC := $(wildcard ./src/*.c)
 OBJ := $(addprefix $(ObjDIR)/, $(notdir $(SRC:.c=.o)))
 
+# The Meat and Potatoes...
 .PHONY: all clean oclean fclean
 
 all: target
