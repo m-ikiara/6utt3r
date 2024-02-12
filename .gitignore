@@ -1,4 +1,6 @@
 # C/C++ garbage
 *~
 *.o
+*.so
+*.dll
 *.exe
