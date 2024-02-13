@@ -17,3 +17,12 @@
 #define throw(x) {__HadError=true;goto ExitJmp;}
 
 #endif // !_BTR_MAIN_H_
+
+/***********************************6utt3r**********************************
+ * @name 6utt3r
+ * @version 1.3.0
+ * @author Brian M'Ikiara
+ * @copyright 2024
+ *
+ * @description Defines 6utt3r's Primary entry point configuration.
+ ***************************************************************************/

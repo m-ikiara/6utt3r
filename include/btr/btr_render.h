@@ -1,29 +1,24 @@
-#ifndef _BTR_CONTROLLER_H_
-#define _BTR_CONTROLLER_H_
+#ifndef _BTR_RENDER_H_
+#define _BTR_RENDER_H_
 
 #pragma once
 
-#include "../SDL2/SDL.h"
+#include "./btr_vectors.h"
+#include "../SDL2/SDL_render.h"
+
 
 /***************************************************************************
- * @brief WINDOW SETTINGS
+ * @brief RENDERER MANAGEMENT
  ***************************************************************************/
-typedef struct {
-  int *x;
-  int *y;
-  int *w;
-  int *h;
-} setWindow;
+SDL_Renderer *init_render(SDL_Window *window, int i);
 
 /***************************************************************************
- * @brief CONTROLLER PROTOTYPES
+ * @brief OBJECT MANAGEMENT
  ***************************************************************************/
-SDL_Window *init_butter(const char title[], int x, int y, int w, int h);
-bool *handle_butter(SDL_Event event, SDL_Surface *surface, bool *status);
-void update_butter(SDL_Window *window, bool status);
-void quit_butter(SDL_Window *window);
+void draw_rect(SDL_Renderer *renderer, Vector2D *vector,
+               Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 
-#endif // !_BTR_CONTROLLER_H_
+#endif // !_BTR_RENDER_H_
 
 /***********************************6utt3r**********************************
  * @name 6utt3r
@@ -31,5 +26,5 @@ void quit_butter(SDL_Window *window);
  * @author Brian M'Ikiara
  * @copyright 2024
  *
- * @description Defines 6utt3r's Global configuration.
+ * @description Defines 6utt3r's Renderer configuration.
  ***************************************************************************/
