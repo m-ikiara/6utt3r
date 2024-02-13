@@ -1,5 +1,5 @@
-#ifndef _GRAPHICS_H_
-#define _GRAPHICS_H_
+#ifndef _BTR_GRAPHICS_H_
+#define _BTR_GRAPHICS_H_
 
 #pragma once
 
@@ -17,9 +17,9 @@ typedef struct {
 /**
  * @brief Pixel management
  */
-void set_pixel(SDL_Surface *,              // Surface or Screen
-               int, int,                   // Pixel position (x, y)
-               uint8_t, uint8_t, uint8_t); // Pixel color (r, g, b)
+void set_pixel(SDL_Surface *surface,              // Surface or Screen
+               int x, int y,                      // Pixel position (x, y)
+               uint8_t r, uint8_t g, uint8_t b);  // Pixel color (r, g, b)
 
 void load_surface(char *path,              // Surface URL
                   SDL_Surface *surface);   // Screen or Surface
@@ -37,4 +37,4 @@ void load_surface(char *path,              // Surface URL
  * #define a (float) 1.0 
  */
 
-#endif // !_GRAPHICS_H_
+#endif // !_BTR_GRAPHICS_H_
