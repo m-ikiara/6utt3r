@@ -95,9 +95,6 @@ handle_butter(SDL_Event event,
         SDL_RenderFillRect(renderer, &rect);
 
         SDL_RenderPresent(renderer);
-      } else {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-        SDL_RenderClear(renderer);
       }
       *status = true;
       break;

@@ -47,7 +47,7 @@ set_pixel(SDL_Surface *surface, int x, int y, uint8_t r, uint8_t g, uint8_t b)
  **************************************************************************/
 
 /**
- * @brief Loads a Surface
+ * @brief Loads an Image
  *
  * @param (char *) path
  * @param (SDL_Surface *) surface
@@ -55,7 +55,7 @@ set_pixel(SDL_Surface *surface, int x, int y, uint8_t r, uint8_t g, uint8_t b)
  * @returns Nothing
  */
 void
-load_surface(char *path, SDL_Surface *surface)
+load_image(char *path, SDL_Surface *surface)
 {
   SDL_Surface *image;
   image = IMG_Load(path);
