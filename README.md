@@ -8,18 +8,15 @@
 1. Clone the repo using either of the following commands:
 
 ```console
-$ git clone https://github.com/brian-ikiara/6utt3r.git
+$ git clone https://github.com/m-ikiara/6utt3r.git
 ```
 
 2. Navigate into the new directory and execute the following:
 
 ```console
-$ make -B
-$ ./butter start
+$ make -B -j3
+$ ./6utt3r
 ```
-
-3. Use the mouse and `WASD` key-bindings for movement around the basic map.
-
 ## 🔑 Licensing
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](./LICENSE) file for details.[^1]

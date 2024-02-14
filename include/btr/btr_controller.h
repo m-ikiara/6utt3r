@@ -8,18 +8,20 @@
 /***************************************************************************
  * @brief WINDOW SETTINGS
  ***************************************************************************/
-typedef struct {
-  int *x;
-  int *y;
-  int *w;
-  int *h;
-} setWindow;
+typedef enum {
+  win_x = (int) 800 / 2,
+  win_y = (int) 400 / 2, 
+  win_w = (int) 800, 
+  win_h = (int) 600
+} btr_Window;
 
 /***************************************************************************
  * @brief CONTROLLER PROTOTYPES
  ***************************************************************************/
 SDL_Window *init_butter(const char title[], int x, int y, int w, int h);
-bool *handle_butter(SDL_Event event, SDL_Surface *surface, bool *status);
+bool *handle_butter(SDL_Event event,
+                    SDL_Surface *surface, SDL_Renderer *renderer,
+                    bool *status);
 void update_butter(SDL_Window *window, bool status);
 void quit_butter(SDL_Window *window);
 

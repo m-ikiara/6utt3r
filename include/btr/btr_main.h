@@ -8,8 +8,9 @@
 #include <assert.h>
 #include <stdlib.h>
 
-#include "./btr_graphics.h"
 #include "./btr_controller.h"
+#include "./btr_graphics.h"
+#include "./btr_render.h"
 #include "./btr_vectors.h"
 
 #define try bool __HadError=false;

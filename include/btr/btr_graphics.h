@@ -8,11 +8,27 @@
 /***************************************************************************
  * @brief COLOR MANAGEMENT
  ***************************************************************************/
-typedef struct {
-  uint8_t *pr;
-  uint8_t *pg;
-  uint8_t *pb;
-} pColor;
+typedef enum {
+  btr_pr = (uint8_t) 0,
+  btr_pg = (uint8_t) 0,
+  btr_pb = (uint8_t) 0
+} btr_Pixel_Color;
+
+typedef enum {
+  btr_gl_x = (int) 800 / 2,
+  btr_gl_y = (int) 400 / 2,
+  btr_gl_w = 800,
+  btr_gl_h = 600,
+} btr_GLR_Position;
+
+/**
+ * typedef enum {
+ *   btr_gl_r = 1.0, 
+ *   btr_gl_b = 0.0,
+ *   btr_gl_g = 0.0,
+ *   btr_gl_a = 1.0
+ * } btr_GLR_Color;
+*/
 
 /***************************************************************************
  * @brief PIXEL MANAGEMENT
@@ -34,15 +50,6 @@ void load_surface(char *path, SDL_Surface *surface);
  * @brief OpenGL MANAGEMENT
  ***************************************************************************/
 /**
- * #define gl_x (GLint) 20
- * #define gl_y (GLint) 20
- * #define gl_w (GLsizei) 800
- * #define gl_h (GLsizei) 600
- * 
- * #define r (float) 1.0 
- * #define b (float) 0.0 
- * #define g (float) 0.0 
- * #define a (float) 1.0 
  */
 #endif // !_BTR_GRAPHICS_H_
 

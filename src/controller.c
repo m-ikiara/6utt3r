@@ -47,14 +47,19 @@ init_butter(const char title[], int x, int y, int w, int h)
  *
  * @param (SDL_Event) event
  * @param (SDL_Surface *) surface
+ * @param (SDL_Renderer *) renderer
  * @param (bool) status
  *
  * @returns Nothing
  */
 bool *
-handle_butter(SDL_Event event, SDL_Surface *surface, bool *status)
+handle_butter(SDL_Event event,
+              SDL_Surface *surface, SDL_Renderer *renderer,
+              bool *status)
 { 
-  int x, y;
+  int x, y,
+      rect_x0 = (int) (win_w - rect_w0) / 2,
+      rect_y0 = (int) (win_h - rect_h0) / 2;
 
   switch (event.type) {
     case SDL_QUIT:
@@ -81,8 +86,19 @@ handle_butter(SDL_Event event, SDL_Surface *surface, bool *status)
       break;
 
     case SDL_KEYDOWN:
-      printf("[TODO] Implement the Keyboard Handler...");
-      fflush(stdout);
+      if (event.key.keysym.sym == SDLK_r) {
+        const SDL_Rect rect = { rect_x0, rect_y0, rect_w0, rect_h0 };
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
+        SDL_RenderDrawRect(renderer, &rect);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
+        SDL_RenderFillRect(renderer, &rect);
+
+        SDL_RenderPresent(renderer);
+      } else {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(renderer);
+      }
       *status = true;
       break;
 

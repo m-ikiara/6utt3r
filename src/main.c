@@ -12,38 +12,21 @@ main(int argc, char *argv[])
 {
   bool is_running = true;
   const char title[] = "6utt3r: The Ray-casting Engine";
-  int x0 = (int) 800 / 2, y0 = (int) 400 / 2, w = 800, h = 600;
-  SDL_Surface *screen = NULL;
 
   if (argc == 0 && !argv)
     return EXIT_FAILURE;
 
-  SDL_Window *window = init_butter(title, x, y, w, h);
-  screen = SDL_GetWindowSurface(window);
+  SDL_Window *window = init_butter(title, win_x, win_y, win_w, win_h);
 
-  // Create renderer and the Rectangle
   SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
                                               SDL_RENDERER_ACCELERATED);
-  SDL_Rect rect = { x, y, w, h };
 
   while (is_running) {
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
-      handle_butter(event, screen, &is_running);
+      handle_butter(event, NULL, renderer, &is_running);
     }
-
-    // Clear the screen and prepare for Drawing
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-    SDL_RenderClear(renderer);
-    // Now draw the Rectangle
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    SDL_RenderDrawLine(renderer, x, y,
-                       x - w, h);
-    SDL_RenderDrawRect(renderer, &rect);
-
-    SDL_RenderPresent(renderer);
-
     update_butter(window, is_running);
   }
 
