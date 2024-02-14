@@ -26,9 +26,6 @@ main(int argc, char *argv[])
 
     while (SDL_PollEvent(&event)) {
       handle_butter(event, NULL, renderer, &is_running);
-
-      SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-      SDL_RenderClear(renderer);
     }
     update_butter(window, is_running);
   }

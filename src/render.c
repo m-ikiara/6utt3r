@@ -25,7 +25,6 @@ init_render(SDL_Window *window, int i)
  * @brief Draw a Rectangle
  *
  * @param (SDL_Renderer *) renderer
- * @param (Vector2D *) vector
  * @param (Uint8) r
  * @param (Uint8) g
  * @param (Uint8) b
@@ -34,15 +33,16 @@ init_render(SDL_Window *window, int i)
  * @returns Nothing
  */
 void
-draw_rect(SDL_Renderer *renderer, Vector2D *vector,
-          Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+draw_rect(SDL_Renderer *renderer)
 {
-  SDL_Rect rect;
+  const SDL_Rect rect = { rect_x0, rect_y0, rect_w0, rect_h0 };
 
-  rect.x = 50, rect.y = 100, rect.w = 20, rect.h = 20;
+  SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
+  SDL_RenderDrawRect(renderer, &rect);
+  SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
+  SDL_RenderFillRect(renderer, &rect);
 
-
-
+  SDL_RenderPresent(renderer);
 }
 
 /***********************************6utt3r**********************************

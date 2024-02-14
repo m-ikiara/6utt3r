@@ -57,10 +57,6 @@ handle_butter(SDL_Event event,
               SDL_Surface *surface, SDL_Renderer *renderer,
               bool *status)
 { 
-  int x, y,
-      rect_x0 = (int) (win_w - rect_w0) / 2,
-      rect_y0 = (int) (win_h - rect_h0) / 2;
-
   switch (event.type) {
     case SDL_QUIT:
       printf("[QUIT] Exiting...");
@@ -69,32 +65,25 @@ handle_butter(SDL_Event event,
       break;
 
     case SDL_MOUSEBUTTONDOWN:
-      SDL_GetMouseState(&x, &y);
+      SDL_GetMouseState((int *) mouse_x, (int *) mouse_y);
 
       if (event.button.button == SDL_BUTTON_LEFT) {
         printf("[INFO] Left Button pressed! o-0");
         fflush(stdout);
-        set_pixel(surface, x, y, 255, 0, 0);
+        set_pixel(surface, mouse_x, mouse_y, 255, 0, 0);
         *status = true;
       }
       if (event.button.button == SDL_BUTTON_RIGHT) {
         printf("[INFO] Right Button pressed! 0-o");
         fflush(stdout);
-        set_pixel(surface, x, y, 0, 0, 255);
+        set_pixel(surface, mouse_x, mouse_y, 0, 0, 255);
         *status = true;
       }
       break;
 
     case SDL_KEYDOWN:
       if (event.key.keysym.sym == SDLK_r) {
-        const SDL_Rect rect = { rect_x0, rect_y0, rect_w0, rect_h0 };
-
-        SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
-        SDL_RenderDrawRect(renderer, &rect);
-        SDL_SetRenderDrawColor(renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
-        SDL_RenderFillRect(renderer, &rect);
-
-        SDL_RenderPresent(renderer);
+        draw_rect(renderer);
       }
       *status = true;
       break;
@@ -105,6 +94,9 @@ handle_butter(SDL_Event event,
       *status = true;
       break;
   }
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+  SDL_RenderClear(renderer);
+
   return status;
 }
 
