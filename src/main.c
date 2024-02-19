@@ -13,13 +13,10 @@ main(int argc, char *argv[])
   bool is_running = true;
   const char title[] = "6utt3r: The Ray-casting Engine";
 
-  if (argc == 0 && !argv)
-    return EXIT_FAILURE;
+  if (argc == 0 && !argv) return EXIT_FAILURE;
 
   SDL_Window *window = init_butter(title, win_x, win_y, win_w, win_h);
-
-  SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
-                                              SDL_RENDERER_ACCELERATED);
+  SDL_Renderer *renderer = init_render(window, -1);
 
   while (is_running) {
     SDL_Event event;

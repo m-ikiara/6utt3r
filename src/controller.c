@@ -27,8 +27,8 @@ init_butter(const char title[], int x, int y, int w, int h)
     fflush(stdout);
   }
 
-  SDL_Window *window = SDL_CreateWindow(title, x, y, w, h,
-                                        SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+  SDL_Window *window = SDL_CreateWindow(
+      title, x, y, w, h, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   SDL_Delay(3000);
 
   if (!window) {
@@ -82,8 +82,10 @@ handle_butter(SDL_Event event,
       break;
 
     case SDL_KEYDOWN:
-      if (event.key.keysym.sym == SDLK_r) {
-        draw_rect(renderer);
+      if (event.key.keysym.sym == SDLK_r) draw_rect(renderer);
+      if (event.key.keysym.sym == SDLK_x) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(renderer);
       }
       *status = true;
       break;
@@ -94,8 +96,6 @@ handle_butter(SDL_Event event,
       *status = true;
       break;
   }
-  SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-  SDL_RenderClear(renderer);
 
   return status;
 }

@@ -7,7 +7,7 @@
  *
  ***************************************************************************/
 
-#include "../include/btr/btr_graphics.h"
+#include "../include/btr/btr_main.h"
 
 /***************************************************************************
  * PIXEL MANAGEMENT >_<
@@ -45,23 +45,6 @@ set_pixel(SDL_Surface *surface, int x, int y, uint8_t r, uint8_t g, uint8_t b)
 /***************************************************************************
  * SURFACE MANAGEMENT ^_^
  **************************************************************************/
-
-/**
- * @brief Loads an Image
- *
- * @param (char *) path
- * @param (SDL_Surface *) surface
- *
- * @returns Nothing
- */
-void
-load_image(char *path, SDL_Surface *surface)
-{
-  SDL_Surface *image;
-  image = IMG_Load(path);
-  SDL_BlitSurface(image, NULL, surface, NULL);
-  SDL_FreeSurface(image);
-}
 
 /***************************************************************************
  * TEXTURE MANAGEMENT *-*

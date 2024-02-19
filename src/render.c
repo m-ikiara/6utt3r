@@ -6,7 +6,7 @@
  *
  ***************************************************************************/
 
-#include "../include/btr/btr_render.h"
+#include "../include/btr/btr_main.h"
 
 /**
  * @brief Initializes the Renderer
