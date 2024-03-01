@@ -40,6 +40,7 @@ typedef enum {
 SDL_Window *init_butter(const char title[], int x, int y, int w, int h);
 bool *handle_butter(SDL_Event event,
 										SDL_Surface *surface, SDL_Renderer *renderer,
+										SDL_Texture *texture,
 										bool *status);
 void update_butter(SDL_Window *window, bool status);
 void quit_butter(SDL_Window *window);
@@ -84,7 +85,6 @@ void set_pixel(SDL_Surface *surface,
 /****************************************************************************
  * @brief TEXTURE MANAGEMENT
  ***************************************************************************/
-SDL_Texture *load_texture(SDL_Renderer *renderer, const char path[]);
 
 /***************************************************************************
  * @brief OpenGL MANAGEMENT
@@ -114,6 +114,7 @@ typedef enum {
 } btr_Rect;
 
 void draw_rect(SDL_Renderer *renderer);
+void draw_textured_rect(SDL_Renderer *renderer, SDL_Texture *texture);
 
 /***************************************************************************
  * @brief VECTOR MANAGEMENT

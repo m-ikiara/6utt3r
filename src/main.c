@@ -50,13 +50,31 @@ set_pixel(SDL_Surface *surface, int x, int y, uint8_t r, uint8_t g, uint8_t b)
 }
 
 /**
+ * @brief Draws a Textured Rectangle
+ *
+ * @param (SDL_Renderer *) renderer
+ * @param (SDL_Texture *) texture
+ *
+ * @returns Nothing
+ */
+void
+draw_textured_rect(SDL_Renderer *renderer, SDL_Texture *texture)
+{
+	const SDL_Rect rect = { rect_x0, rect_y0, rect_w0, rect_h0 };
+
+	SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
+	SDL_RenderDrawRect(renderer, &rect);
+	SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
+	SDL_RenderCopy(renderer, texture, NULL, &rect);
+
+	SDL_RenderPresent(renderer);
+}
+
+
+/**
  * @brief Draw a Rectangle
  *
  * @param (SDL_Renderer *) renderer
- * @param (Uint8) r
- * @param (Uint8) g
- * @param (Uint8) b
- * @param (Uint8) a
  *
  * @returns Nothing
  */
@@ -120,6 +138,7 @@ init_butter(const char title[], int x, int y, int w, int h)
 bool *
 handle_butter(SDL_Event event,
 							SDL_Surface *surface, SDL_Renderer *renderer,
+							SDL_Texture *texture,
 							bool *status)
 {
 	int mse_x, mse_y;
@@ -149,6 +168,8 @@ handle_butter(SDL_Event event,
 
 		case SDL_KEYDOWN:
 			if (event.key.keysym.sym == SDLK_r) draw_rect(renderer);
+			if (event.key.keysym.sym == SDLK_t)
+			 	draw_textured_rect(renderer, texture);
 			if (event.key.keysym.sym == SDLK_x) {
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 				SDL_RenderClear(renderer);
@@ -205,18 +226,20 @@ int
 main(int argc, char *argv[])
 {
 	bool is_running = true;
-	const char title[] = "6utt3r: The Ray-casting Engine";
+	const char title[] = "6utt3r: The Ray-casting Engine",
+						 path[] = "./assets/images/favicon.png";
 
 	if (argc == 0 && !argv) return EXIT_FAILURE;
 
 	SDL_Window *window = init_butter(title, win_x, win_y, win_w, win_h);
 	SDL_Renderer *renderer = init_render(window, -1);
+	SDL_Texture *texture = IMG_LoadTexture(renderer, path);
 
 	while (is_running) {
 		SDL_Event event;
 
 		while (SDL_PollEvent(&event)) {
-			handle_butter(event, NULL, renderer, &is_running);
+			handle_butter(event, NULL, renderer, texture, &is_running);
 		}
 		update_butter(window, is_running);
 	}
