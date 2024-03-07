@@ -1,258 +1,138 @@
-/*******************************6uttt3r**************************************
- *
- * TODO: Read through each of these and work accordingly:
- *   1. Refactor! Optimize! Sleep! Repeat!
- *
- ***************************************************************************/
+#include "raylib.h"
+#include "rcamera.h"
 
-#include <btr/btr_main.h>
+#define MAX_COLUMNS 20
 
-/**
- * @brief Initializes the Renderer
- *
- * @param (void)
- */
-SDL_Renderer *
-init_render(SDL_Window *window, int i)
+int main(void)
 {
-	SDL_Renderer *renderer = SDL_CreateRenderer(window, i,
-																							SDL_RENDERER_ACCELERATED);
-	return renderer;
-}
+	InitWindow(800, 600, "Respec: Camera Engine");
 
-/**
- * @brief Draws a pixel to the Screen
- *
- * @param (SDL_Surface *) surface
- * @param (int) x
- * @param (int) y
- * @param (uint8_t) r
- * @param (uint8_t) g
- * @param (uint8_t) b
- *
- * @description This function will set the value of a given pixel in order to
- * display it on our window. The pixel array depends on a given processor's
- * architecture among other nitty-gritties. Feel free to modify the value
- * of the offsets to your liking.
- * @returns Nothing
- */
-void
-set_pixel(SDL_Surface *surface, int x, int y, uint8_t r, uint8_t g, uint8_t b)
-{
-	SDL_LockSurface(surface);
-	uint8_t *pixel_array = (uint8_t *)surface->pixels;
+	Camera camera = { 0 };
+	camera.position = (Vector3){ 0.0f, 2.0f, 4.0f };    // Camera position
+	camera.target = (Vector3){ 0.0f, 2.0f, 0.0f };      // Camera looking at point
+	camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
+	camera.fovy = 60.0f;                                // Camera field-of-view Y
+	camera.projection = CAMERA_PERSPECTIVE;             // Camera projection type
 
-	pixel_array[y*surface->pitch + x*surface->format->BytesPerPixel + 0] = b;
-	pixel_array[y*surface->pitch + x*surface->format->BytesPerPixel + 1] = g;
-	pixel_array[y*surface->pitch + x*surface->format->BytesPerPixel + 2] = r;
+	int cameraMode = CAMERA_FIRST_PERSON;
 
-	SDL_UnlockSurface(surface);
-}
+	float heights[MAX_COLUMNS] = { 0 };
+	Vector3 positions[MAX_COLUMNS] = { 0 };
+	Color colors[MAX_COLUMNS] = { 0 };
 
-/**
- * @brief Draws a Textured Rectangle
- *
- * @param (SDL_Renderer *) renderer
- * @param (SDL_Texture *) texture
- *
- * @returns Nothing
- */
-void
-draw_textured_rect(SDL_Renderer *renderer, SDL_Texture *texture)
-{
-	const SDL_Rect rect = { rect_x0, rect_y0, rect_w0, rect_h0 };
-
-	SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
-	SDL_RenderDrawRect(renderer, &rect);
-	SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
-	SDL_RenderCopy(renderer, texture, NULL, &rect);
-
-	SDL_RenderPresent(renderer);
-}
-
-
-/**
- * @brief Draw a Rectangle
- *
- * @param (SDL_Renderer *) renderer
- *
- * @returns Nothing
- */
-void
-draw_rect(SDL_Renderer *renderer)
-{
-	const SDL_Rect rect = { rect_x0, rect_y0, rect_w0, rect_h0 };
-
-	SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
-	SDL_RenderDrawRect(renderer, &rect);
-	SDL_SetRenderDrawColor(renderer, rect_r, rect_g, rect_b, rect_a);
-	SDL_RenderFillRect(renderer, &rect);
-
-	SDL_RenderPresent(renderer);
-}
-
-/**
- * @brief Initializes SDL and 6utt3r as a whole
- *
- * @param (char *) title
- * @param (int) x
- * @param (int) y
- * @param (int) w
- * @param (int) h
- *
- * @returns A pointer to the window or NULL
- */
-SDL_Window *
-init_butter(const char title[], int x, int y, int w, int h)
-{
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		printf("[ERROR] %s", SDL_GetError());
-		fflush(stdout);
+	for (int i = 0; i < MAX_COLUMNS; i++)
+	{
+		heights[i] = (float)GetRandomValue(1, 12);
+		positions[i] = (Vector3){ (float)GetRandomValue(-15, 15), heights[i]/2.0f, (float)GetRandomValue(-15, 15) };
+		colors[i] = (Color){ GetRandomValue(20, 255), GetRandomValue(10, 55), 30, 255 };
 	}
 
-	SDL_Window *window = SDL_CreateWindow(
-			title, x, y, w, h, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-	SDL_Delay(3000);
+	DisableCursor();                    // Limit cursor to relative movement inside the window
 
-	if (!window) {
-		printf("[ERROR] %s", SDL_GetError());
-		fflush(stdout);
-		return NULL;
-	}
-	printf("[INFO] Window Created! =-D");
-	fflush(stdout);
-
-	return window;
-}
-
-/**
- * @brief Handles all of 6utt3r's events
- *
- * @param (SDL_Event) event
- * @param (SDL_Surface *) surface
- * @param (SDL_Renderer *) renderer
- * @param (bool) status
- *
- * @returns Nothing
- */
-bool *
-handle_butter(SDL_Event event,
-							SDL_Surface *surface, SDL_Renderer *renderer,
-							SDL_Texture *texture,
-							bool *status)
-{
-	int mse_x, mse_y;
-	switch (event.type) {
-		case SDL_QUIT:
-			printf("[QUIT] Exiting...");
-			fflush(stdout);
-			*status = false;
-			break;
-
-		case SDL_MOUSEBUTTONDOWN:
-			SDL_GetMouseState(&mse_x, &mse_y);
-
-			if (event.button.button == SDL_BUTTON_LEFT) {
-				printf("[INFO] Left Button pressed! o-0");
-				fflush(stdout);
-				set_pixel(surface, mouse_x, mouse_y, 255, 0, 0);
-				*status = true;
-			}
-			if (event.button.button == SDL_BUTTON_RIGHT) {
-				printf("[INFO] Right Button pressed! 0-o");
-				fflush(stdout);
-				set_pixel(surface, mouse_x, mouse_y, 0, 0, 255);
-				*status = true;
-			}
-			break;
-
-		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_r) draw_rect(renderer);
-			if (event.key.keysym.sym == SDLK_t)
-			 	draw_textured_rect(renderer, texture);
-			if (event.key.keysym.sym == SDLK_x) {
-				SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-				SDL_RenderClear(renderer);
-			}
-			*status = true;
-			break;
-
-		default:
-			printf("[ERROR] %s", SDL_GetError());
-			fflush(stdout);
-			*status = true;
-			break;
-	}
-
-	return status;
-}
-
-/**
- * @brief Update 6utt3r's state
- *
- * @param (SDL_Window *) window
- *
- * @returns Nothing
- */
-void
-update_butter(SDL_Window *window, bool status)
-{
-	if (status == true) { SDL_UpdateWindowSurface(window); }
-}
-
-/**
- * @brief Quits 6utt3r and closes SDL2's subsystems
- *
- * @param (SDL_Window *) window
- *
- * @returns Nothing
- */
-void
-quit_butter(SDL_Window *window)
-{
-	SDL_DestroyWindow(window);
-
-	for (int i = 3; i > 0; i--) {
-		printf("[QUIT] Closing in %d", i);
-		fflush(stdout);
-	}
-
-	printf("[QUIT] Bye Bye! ^-^");
-	fflush(stdout);
-	SDL_Quit();
-}
-
-int
-main(int argc, char *argv[])
-{
-	bool is_running = true;
-	const char title[] = "6utt3r: The Ray-casting Engine",
-						 path[] = "./assets/images/favicon.png";
-
-	if (argc == 0 && !argv) return EXIT_FAILURE;
-
-	SDL_Window *window = init_butter(title, win_x, win_y, win_w, win_h);
-	SDL_Renderer *renderer = init_render(window, -1);
-	SDL_Texture *texture = IMG_LoadTexture(renderer, path);
-
-	while (is_running) {
-		SDL_Event event;
-
-		while (SDL_PollEvent(&event)) {
-			handle_butter(event, NULL, renderer, texture, &is_running);
+	SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
+	while (!WindowShouldClose())        // Detect window close button or ESC key
+	{
+		if (IsKeyPressed(KEY_ONE))
+		{
+			cameraMode = CAMERA_FREE;
+			camera.up = (Vector3){ 0.0f, 1.0f, 0.0f }; // Reset roll
 		}
-		update_butter(window, is_running);
+
+		if (IsKeyPressed(KEY_TWO))
+		{
+			cameraMode = CAMERA_FIRST_PERSON;
+			camera.up = (Vector3){ 0.0f, 1.0f, 0.0f }; // Reset roll
+		}
+
+		if (IsKeyPressed(KEY_THREE))
+		{
+			cameraMode = CAMERA_THIRD_PERSON;
+			camera.up = (Vector3){ 0.0f, 1.0f, 0.0f }; // Reset roll
+		}
+
+		if (IsKeyPressed(KEY_FOUR))
+		{
+			cameraMode = CAMERA_ORBITAL;
+			camera.up = (Vector3){ 0.0f, 1.0f, 0.0f }; // Reset roll
+		}
+
+		if (IsKeyPressed(KEY_P))
+		{
+			if (camera.projection == CAMERA_PERSPECTIVE)
+			{
+				cameraMode = CAMERA_THIRD_PERSON;
+				camera.position = (Vector3){ 0.0f, 2.0f, -100.0f };
+				camera.target = (Vector3){ 0.0f, 2.0f, 0.0f };
+				camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };
+				camera.projection = CAMERA_ORTHOGRAPHIC;
+				camera.fovy = 20.0f; // near plane width in CAMERA_ORTHOGRAPHIC
+				CameraYaw(&camera, -135 * DEG2RAD, true);
+				CameraPitch(&camera, -45 * DEG2RAD, true, true, false);
+			}
+			else if (camera.projection == CAMERA_ORTHOGRAPHIC)
+			{
+				cameraMode = CAMERA_THIRD_PERSON;
+				camera.position = (Vector3){ 0.0f, 2.0f, 10.0f };
+				camera.target = (Vector3){ 0.0f, 2.0f, 0.0f };
+				camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };
+				camera.projection = CAMERA_PERSPECTIVE;
+				camera.fovy = 60.0f;
+			}
+		}
+
+		UpdateCamera(&camera, cameraMode);                  // Update camera
+		BeginDrawing();
+
+			ClearBackground(RAYWHITE);
+
+			BeginMode3D(camera);
+
+				DrawPlane((Vector3){ 0.0f, 0.0f, 0.0f }, (Vector2){ 32.0f, 32.0f }, LIGHTGRAY); // Draw ground
+				DrawCube((Vector3){ -16.0f, 2.5f, 0.0f }, 1.0f, 5.0f, 32.0f, GOLD);     // Draw a blue wall
+				DrawCube((Vector3){ 16.0f, 2.5f, 0.0f }, 1.0f, 5.0f, 32.0f, GOLD);      // Draw a green wall
+				DrawCube((Vector3){ 0.0f, 2.5f, 16.0f }, 32.0f, 5.0f, 1.0f, GOLD);      // Draw a yellow wall
+
+				for (int i = 0; i < MAX_COLUMNS; i++)
+				{
+					DrawCube(positions[i], 2.0f, heights[i], 2.0f, colors[i]);
+					DrawCubeWires(positions[i], 2.0f, heights[i], 2.0f, MAROON);
+				}
+
+				if (cameraMode == CAMERA_THIRD_PERSON)
+				{
+					DrawCube(camera.target, 0.5f, 0.5f, 0.5f, PURPLE);
+					DrawCubeWires(camera.target, 0.5f, 0.5f, 0.5f, DARKPURPLE);
+				}
+
+			EndMode3D();
+
+			DrawRectangle(5, 5, 330, 100, Fade(SKYBLUE, 0.5f));
+			DrawRectangleLines(5, 5, 330, 100, BLUE);
+
+			DrawText("Camera controls:", 15, 15, 10, BLACK);
+			DrawText("- Move keys: W, A, S, D, Space, Left-Ctrl", 15, 30, 10, BLACK);
+			DrawText("- Look around: arrow keys or mouse", 15, 45, 10, BLACK);
+			DrawText("- Camera mode keys: 1, 2, 3, 4", 15, 60, 10, BLACK);
+			DrawText("- Zoom keys: num-plus, num-minus or mouse scroll", 15, 75, 10, BLACK);
+			DrawText("- Camera projection key: P", 15, 90, 10, BLACK);
+
+			DrawRectangle(600, 5, 195, 100, Fade(SKYBLUE, 0.5f));
+			DrawRectangleLines(600, 5, 195, 100, BLUE);
+
+			DrawText("Camera status:", 610, 15, 10, BLACK);
+			DrawText(TextFormat("- Mode: %s", (cameraMode == CAMERA_FREE) ? "FREE" :
+											  (cameraMode == CAMERA_FIRST_PERSON) ? "FIRST_PERSON" :
+											  (cameraMode == CAMERA_THIRD_PERSON) ? "THIRD_PERSON" :
+											  (cameraMode == CAMERA_ORBITAL) ? "ORBITAL" : "CUSTOM"), 610, 30, 10, BLACK);
+			DrawText(TextFormat("- Projection: %s", (camera.projection == CAMERA_PERSPECTIVE) ? "PERSPECTIVE" :
+													(camera.projection == CAMERA_ORTHOGRAPHIC) ? "ORTHOGRAPHIC" : "CUSTOM"), 610, 45, 10, BLACK);
+			DrawText(TextFormat("- Position: (%06.3f, %06.3f, %06.3f)", camera.position.x, camera.position.y, camera.position.z), 610, 60, 10, BLACK);
+			DrawText(TextFormat("- Target: (%06.3f, %06.3f, %06.3f)", camera.target.x, camera.target.y, camera.target.z), 610, 75, 10, BLACK);
+			DrawText(TextFormat("- Up: (%06.3f, %06.3f, %06.3f)", camera.up.x, camera.up.y, camera.up.z), 610, 90, 10, BLACK);
+
+		EndDrawing();
 	}
-	quit_butter(window);
+	CloseWindow();        // Close window and OpenGL context
 
-	return EXIT_SUCCESS;
+	return 0;
 }
-
-/***********************************6utt3r**********************************
- * @name 6utt3r
- * @version 1.3.0
- * @author Brian M'Ikiara
- * @copyright 2024
- *
- * @description Provides 6utt3r's Primary entry point.
- ***************************************************************************/
