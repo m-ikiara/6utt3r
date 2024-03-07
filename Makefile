@@ -28,7 +28,7 @@ target: $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) $(LibFLAGS) -o $(NAME)
 
 $(ObjDIR)/%.o: $(SRC) $(CPPSRC) $(CXXSRC)
-	$(CXX) $(CXXFLAGS) $(IncFLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) $(IncFLAGS) -c $< -o $@
 
 clean:
 	rm -f target $(OBJ)
