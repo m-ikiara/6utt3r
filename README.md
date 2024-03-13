@@ -3,7 +3,7 @@
     <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/m-ikiara/6utt3r?style=plastic&color=red" />
 </div>
 
-## Getting Started
+## Getting Started[^1]
 
 1. Clone the repo using either of the following commands:
 
@@ -25,6 +25,11 @@ $ ./6utt3r
 
 ## Licensing
 
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](./LICENSE) file for details.[^1]
+This project is licensed under the:
+
+- [MIT License](./LICENSE).
+- [Apache-2.0 License](./LICENSE)
+
+at your option.
 
 [^1]: Having trouble understanding these commits? Check out this [Issue](https://github.com/m-ikiara/m-ikiara.github.io/issues/1) for more details.
